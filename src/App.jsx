@@ -17,7 +17,7 @@ export default function App() {
 
       {/* Hero Section */}
       <header style={styles.hero}>
-        <h1 style={styles.heroTitle}>Welcome to the Heart of Namma Bengaluru</h1>
+        <h1 style={styles.heroTitle}>Welcome to the Heart of Bengaluru</h1>
         <p style={styles.heroSubtitle}>
           Discover local events, connect with fellow Bangaloreans, and celebrate the culture of Bengaluru.
         </p>
