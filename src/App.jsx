@@ -20,14 +20,9 @@ export default function App() {
 
         <main style={styles.pageContent}>
           <h1 style={styles.pageTitle}>Hrdaya Siddhi</h1>
-          <p style={styles.pageSubtitle}>
-            Welcome to Hrdaya Siddhi. Discover holistic wellness, spiritual growth, and community initiatives in Bengaluru.
-          </p>
-
           <div style={styles.detailsCard}>
-            <h3>About Hrdaya Siddhi</h3>
             <p style={{ color: '#cbd5e1', lineHeight: '1.6' }}>
-              This section is dedicated to sharing details, programs, and updates about Hrdaya Siddhi. Tell me what content, images, or forms you want to add here!
+              Welcome to Hrdaya Siddhi. Tell me what details, forms, or content you want to place on this page!
             </p>
           </div>
         </main>
@@ -50,9 +45,6 @@ export default function App() {
         <div style={styles.navLinks}>
           <button style={styles.navBtn} onClick={() => setCurrentPage('home')}>Home</button>
           <button style={styles.navBtn} onClick={() => setCurrentPage('about')}>About</button>
-          <button style={styles.primaryBtn} onClick={() => setCurrentPage('hrdaya-siddhi')}>
-            Hrdaya Siddhi
-          </button>
         </div>
       </nav>
 
@@ -62,9 +54,6 @@ export default function App() {
         <p style={styles.heroSubtitle}>
           Discover local events, connect with fellow Bangaloreans, and celebrate the culture of Bengaluru.
         </p>
-        <button style={styles.ctaBtn} onClick={() => setCurrentPage('hrdaya-siddhi')}>
-          Explore Hrdaya Siddhi
-        </button>
       </header>
 
       {/* Feature Section */}
@@ -89,7 +78,7 @@ export default function App() {
               <h3>✨ Hrdaya Siddhi</h3>
               <span style={styles.arrow}>→</span>
             </div>
-            <p>Explore Hrdaya Siddhi programs, initiatives, and community updates. Click to view more.</p>
+            <p>Click to view the Hrdaya Siddhi page.</p>
           </div>
         </div>
       </section>
@@ -136,18 +125,9 @@ const styles = {
     cursor: 'pointer',
     fontSize: '1rem',
   },
-  primaryBtn: {
-    backgroundColor: '#38bdf8',
-    color: '#0f172a',
-    border: 'none',
-    padding: '0.5rem 1.25rem',
-    borderRadius: '0.375rem',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-  },
   hero: {
     textAlign: 'center',
-    padding: '5rem 2rem',
+    padding: '5rem 2rem 3rem 2rem',
     maxWidth: '800px',
     margin: '0 auto',
   },
@@ -159,17 +139,7 @@ const styles = {
   heroSubtitle: {
     fontSize: '1.25rem',
     color: '#94a3b8',
-    marginBottom: '2rem',
-  },
-  ctaBtn: {
-    backgroundColor: '#0284c7',
-    color: '#ffffff',
-    border: 'none',
-    padding: '0.875rem 2rem',
-    fontSize: '1.1rem',
-    borderRadius: '0.5rem',
-    fontWeight: 'bold',
-    cursor: 'pointer',
+    marginBottom: '1rem',
   },
   section: {
     padding: '3rem 2rem',
@@ -191,7 +161,6 @@ const styles = {
   clickableCard: {
     cursor: 'pointer',
     borderColor: '#38bdf8',
-    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
   },
   cardHeader: {
     display: 'flex',
@@ -214,12 +183,7 @@ const styles = {
   pageTitle: {
     fontSize: '2.5rem',
     color: '#38bdf8',
-    marginBottom: '0.5rem',
-  },
-  pageSubtitle: {
-    fontSize: '1.2rem',
-    color: '#94a3b8',
-    marginBottom: '2rem',
+    marginBottom: '1.5rem',
   },
   detailsCard: {
     backgroundColor: '#1e293b',
