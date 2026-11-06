@@ -46,7 +46,7 @@ export default function App() {
             </div>
           </div>
 
-          <h1 style={styles.pageTitle}>'Hrdaya Siddhi'</h1>
+          <h1 style={styles.pageTitle}>Hrdaya Siddhi</h1>
           <p style={styles.tagline}>Cleanse Your Heart • Early Detection Saves Lives</p>
         </header>
 
