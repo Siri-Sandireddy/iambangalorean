@@ -22,20 +22,28 @@ export default function App() {
         {/* Header with Logos & Organization Names */}
         <header style={styles.pageHeader}>
           <div style={styles.logoRow}>
-            <img 
-              src="/lions-logo.png" 
-              alt="Lions International Logo" 
-              style={styles.headerLogo} 
-            />
+            {/* Lions International Emblem */}
+            <div style={styles.logoWrapper}>
+              <img 
+                src="/lions-logo.png" 
+                alt="Lions International Logo" 
+                style={styles.lionsLogo} 
+              />
+            </div>
+
             <div style={styles.orgTitles}>
               <h2 style={styles.orgMain}>LIONS INTERNATIONAL DISTRICT 317F</h2>
               <h3 style={styles.orgSub}>LIONS CLUB OF BANGALORE BRIGADE (LIONS BRIGADE)</h3>
             </div>
-            <img 
-              src="/district-logo.png" 
-              alt="Lions District 317F Logo" 
-              style={styles.headerLogo} 
-            />
+
+            {/* District 317F Heart Emblem */}
+            <div style={styles.logoWrapper}>
+              <img 
+                src="/district-logo.png" 
+                alt="Lions District 317F Logo" 
+                style={styles.districtLogo} 
+              />
+            </div>
           </div>
 
           <h1 style={styles.pageTitle}>'Hrdaya Siddhi'</h1>
@@ -204,13 +212,24 @@ const styles = {
     gap: '1.5rem',
     marginBottom: '2rem',
   },
-  headerLogo: {
-    width: '130px',
-    height: '130px',
-    minWidth: '130px',
-    minHeight: '130px',
-    objectFit: 'contain',
+  logoWrapper: {
+    width: '140px',
+    height: '140px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     flexShrink: 0,
+  },
+  lionsLogo: {
+    maxWidth: '100%',
+    maxHeight: '100%',
+    objectFit: 'contain',
+  },
+  districtLogo: {
+    maxWidth: '100%',
+    maxHeight: '100%',
+    objectFit: 'contain',
+    transform: 'scale(1.4)', /* Enlarges the district logo graphic specifically to balance both */
   },
   orgTitles: {
     textAlign: 'center',
