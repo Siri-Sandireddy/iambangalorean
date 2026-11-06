@@ -49,6 +49,12 @@ export default function App() {
             <p style={styles.paragraph}>
               Cardiovascular diseases cause between 17.9 million to 20.5 million deaths globally each year, with heart attacks and strokes accounting for roughly 85% of these fatalities. India accounts for 20% of all heart attack deaths worldwide, with an alarming rise in young adults. 1 in 4 heart attacks occur silently without prior symptoms.
             </p>
+            
+            <div style={styles.actionRow}>
+              <button style={styles.primaryRegisterBtn} onClick={() => setCurrentPage('registration')}>
+                Register Here →
+              </button>
+            </div>
           </div>
         </main>
         <footer style={styles.footer}><p>© 2026 iambangalorean.com</p></footer>
@@ -77,6 +83,12 @@ export default function App() {
               <li>No hospital admission required</li>
               <li>Detects hidden plaque build-up early</li>
             </ul>
+
+            <div style={styles.actionRow}>
+              <button style={styles.primaryRegisterBtn} onClick={() => setCurrentPage('registration')}>
+                Register Here →
+              </button>
+            </div>
           </div>
         </main>
         <footer style={styles.footer}><p>© 2026 iambangalorean.com</p></footer>
@@ -213,7 +225,7 @@ const styles = {
   container: {
     fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     color: '#e2e8f0',
-    backgroundColor: '#070d1e', // Clean deep navy background
+    backgroundColor: '#070d1e',
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
@@ -347,6 +359,22 @@ const styles = {
     padding: '2.25rem',
     borderRadius: '0.75rem',
     border: '1px solid',
+  },
+  actionRow: {
+    marginTop: '2rem',
+    display: 'flex',
+    justifyContent: 'flex-start',
+  },
+  primaryRegisterBtn: {
+    backgroundColor: '#0284c7',
+    color: '#ffffff',
+    border: 'none',
+    padding: '0.75rem 1.75rem',
+    borderRadius: '0.5rem',
+    fontSize: '1rem',
+    fontWeight: '700',
+    cursor: 'pointer',
+    transition: 'background-color 0.2s ease',
   },
   badgeInfo: {
     display: 'inline-block',
