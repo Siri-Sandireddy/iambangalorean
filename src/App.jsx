@@ -3,6 +3,12 @@ import { useState } from 'react';
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
+  const googleFormUrl = 'https://forms.gle/BG8YLML8VYn59X7b9';
+
+  const openRegistrationForm = () => {
+    window.open(googleFormUrl, '_blank', 'noopener,noreferrer');
+  };
+
   // Clean, modern Header for Hrdaya Siddhi pages
   const HrdayaHeader = () => (
     <header style={styles.pageHeader}>
@@ -51,7 +57,7 @@ export default function App() {
             </p>
             
             <div style={styles.actionRow}>
-              <button style={styles.primaryRegisterBtn} onClick={() => setCurrentPage('registration')}>
+              <button style={styles.primaryRegisterBtn} onClick={openRegistrationForm}>
                 Register Here →
               </button>
             </div>
@@ -85,33 +91,10 @@ export default function App() {
             </ul>
 
             <div style={styles.actionRow}>
-              <button style={styles.primaryRegisterBtn} onClick={() => setCurrentPage('registration')}>
+              <button style={styles.primaryRegisterBtn} onClick={openRegistrationForm}>
                 Register Here →
               </button>
             </div>
-          </div>
-        </main>
-        <footer style={styles.footer}><p>© 2026 iambangalorean.com</p></footer>
-      </div>
-    );
-  }
-
-  // Sub-Page 3: REGISTRATION
-  if (currentPage === 'registration') {
-    return (
-      <div style={styles.container}>
-        <nav style={styles.nav}>
-          <h2 style={styles.logo} onClick={() => setCurrentPage('home')}>I Am Bangalorean</h2>
-          <button style={styles.navBtn} onClick={() => setCurrentPage('hrdaya-siddhi')}>← Back to Hrdaya Siddhi</button>
-        </nav>
-        <HrdayaHeader />
-        <main style={styles.pageContent}>
-          <div style={{ ...styles.medicalCard, borderColor: '#38bdf8' }}>
-            <div style={styles.badgePrimary}>CLINICAL ACTION</div>
-            <h2 style={{ ...styles.cardHeading, color: '#38bdf8' }}>3. Screening Registration</h2>
-            <p style={styles.paragraph}>
-              Register here for subsidized CCTA / CAC screening tests organized by Lions Club of Bangalore Brigade and partner hospitals.
-            </p>
           </div>
         </main>
         <footer style={styles.footer}><p>© 2026 iambangalorean.com</p></footer>
@@ -161,11 +144,11 @@ export default function App() {
 
             <div 
               style={{ ...styles.actionCard, borderColor: '#38bdf8' }} 
-              onClick={() => setCurrentPage('registration')}
+              onClick={openRegistrationForm}
             >
               <span style={{ ...styles.cardNumber, color: '#38bdf8' }}>03</span>
-              <h3 style={{ ...styles.actionTitle, color: '#38bdf8' }}>REGISTRATION →</h3>
-              <p style={styles.actionDesc}>Sign up for early detection screening programs and partner hospital tests.</p>
+              <h3 style={{ ...styles.actionTitle, color: '#38bdf8' }}>REGISTRATION ↗</h3>
+              <p style={styles.actionDesc}>Click to open Google Form and sign up for early detection screening programs.</p>
             </div>
           </div>
         </main>
@@ -404,17 +387,6 @@ const styles = {
     fontWeight: '700',
     color: '#34d399',
     backgroundColor: '#10b98120',
-    padding: '0.25rem 0.6rem',
-    borderRadius: '0.25rem',
-    marginBottom: '1rem',
-    letterSpacing: '0.08em',
-  },
-  badgePrimary: {
-    display: 'inline-block',
-    fontSize: '0.75rem',
-    fontWeight: '700',
-    color: '#38bdf8',
-    backgroundColor: '#0284c720',
     padding: '0.25rem 0.6rem',
     borderRadius: '0.25rem',
     marginBottom: '1rem',
