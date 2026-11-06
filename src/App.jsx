@@ -7,6 +7,7 @@ export default function App() {
   if (currentPage === 'hrdaya-siddhi') {
     return (
       <div style={styles.container}>
+        {/* Navigation */}
         <nav style={styles.nav}>
           <h2 style={styles.logo} onClick={() => setCurrentPage('home')}>
             I Am Bangalorean
@@ -18,16 +19,78 @@ export default function App() {
           </div>
         </nav>
 
+        {/* Header with Logos & Organization Names */}
+        <header style={styles.pageHeader}>
+          <div style={styles.logoRow}>
+            <img 
+              src="/lions-logo.png" 
+              alt="Lions International Logo" 
+              style={styles.headerLogo} 
+            />
+            <div style={styles.orgTitles}>
+              <h2 style={styles.orgMain}>LIONS INTERNATIONAL DISTRICT 317F</h2>
+              <h3 style={styles.orgSub}>LIONS CLUB OF BANGALORE BRIGADE (LIONS BRIGADE)</h3>
+            </div>
+            <img 
+              src="/district-logo.png" 
+              alt="Lions District 317F Logo" 
+              style={styles.headerLogo} 
+            />
+          </div>
+
+          <h1 style={styles.pageTitle}>'Hrdaya Siddhi'</h1>
+          <p style={styles.tagline}>Cleanse Your Heart • Early Detection Saves Lives</p>
+        </header>
+
+        {/* Content Section: The Heart Attack Problem & Early Detection */}
         <main style={styles.pageContent}>
-          <h1 style={styles.pageTitle}>Hrdaya Siddhi</h1>
+          {/* Key Warning Statistics */}
+          <div style={styles.problemBanner}>
+            <h2 style={styles.sectionHeading}>THE PROBLEM: Heart Attacks are Silent Killers</h2>
+            <div style={styles.statsGrid}>
+              <div style={styles.statBox}>
+                <span style={styles.statNumber}>1 in 4</span>
+                <p style={styles.statText}>Heart attacks happen without prior warning signs.</p>
+              </div>
+              <div style={styles.statBox}>
+                <span style={styles.statNumber}>#1 Cause</span>
+                <p style={styles.statText}>Heart disease is the leading cause of mortality across India.</p>
+              </div>
+              <div style={styles.statBox}>
+                <span style={styles.statNumber}>5-10 Years</span>
+                <p style={styles.statText}>Blockages are detectable years before a fatal attack occurs.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Detailed Problem Explanation */}
           <div style={styles.detailsCard}>
-            <p style={{ color: '#cbd5e1', lineHeight: '1.6' }}>
-              Welcome to Hrdaya Siddhi. Tell me what details, forms, or content you want to place on this page!
+            <h3 style={styles.cardHeading}>Understanding the Heart Attack Crisis</h3>
+            <p style={styles.paragraph}>
+              Cardiovascular diseases claim between 17.9 million to 20.5 million lives globally each year, with heart attacks and strokes accounting for roughly 85% of those totals. India accounts for approximately 20% of all heart attack deaths worldwide, with an alarming increase in cardiac arrest cases among young adults and working professionals.
             </p>
+            <p style={styles.paragraph}>
+              A major barrier in preventing sudden cardiac events is that awareness alone without early action fails to stop mortality. Arterial blockages build up silently over several years, but traditional awareness often comes after an emergency strikes.
+            </p>
+          </div>
+
+          {/* The Solution - Early Detection */}
+          <div style={styles.solutionCard}>
+            <h3 style={styles.cardHeading}>The Solution: CCTA Screening</h3>
+            <p style={styles.paragraph}>
+              <strong>Coronary CT Angiography (CCTA)</strong> offers a non-invasive, 5-minute cardiac scan with 99% accuracy in identifying hidden coronary blockages early.
+            </p>
+            <ul style={styles.featureList}>
+              <li>Non-Invasive 5-minute advanced scan</li>
+              <li>No hospital admission required</li>
+              <li>Detects coronary artery blockages before symptoms appear</li>
+              <li>Enables proactive, preventive cardiac care</li>
+            </ul>
           </div>
         </main>
 
         <footer style={styles.footer}>
+          <p>Presented by Lions Club of Bangalore Brigade (LIONS BRIGADE) & LEO Club Asraya</p>
           <p>© 2026 iambangalorean.com. All rights reserved.</p>
         </footer>
       </div>
@@ -78,7 +141,7 @@ export default function App() {
               <h3>✨ Hrdaya Siddhi</h3>
               <span style={styles.arrow}>→</span>
             </div>
-            <p>Click to view the Hrdaya Siddhi page.</p>
+            <p>Lions District 317F & Lions Brigade Heart Attack Awareness and Early Detection Initiative.</p>
           </div>
         </div>
       </section>
@@ -124,6 +187,126 @@ const styles = {
     color: '#cbd5e1',
     cursor: 'pointer',
     fontSize: '1rem',
+  },
+  pageHeader: {
+    textAlign: 'center',
+    padding: '3rem 2rem 1rem 2rem',
+    maxWidth: '1000px',
+    margin: '0 auto',
+    width: '100%',
+    boxSizing: 'border-box',
+  },
+  logoRow: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: '1.5rem',
+    marginBottom: '1.5rem',
+  },
+  headerLogo: {
+    height: '90px',
+    objectFit: 'contain',
+  },
+  orgTitles: {
+    textAlign: 'center',
+  },
+  orgMain: {
+    fontSize: '1.3rem',
+    color: '#fbbf24',
+    margin: '0 0 0.25rem 0',
+    letterSpacing: '0.05em',
+  },
+  orgSub: {
+    fontSize: '1rem',
+    color: '#38bdf8',
+    margin: 0,
+    fontWeight: '500',
+  },
+  pageTitle: {
+    fontSize: '3rem',
+    color: '#ef4444',
+    margin: '1rem 0 0.5rem 0',
+  },
+  tagline: {
+    fontSize: '1.2rem',
+    color: '#94a3b8',
+    margin: 0,
+  },
+  pageContent: {
+    padding: '2rem',
+    maxWidth: '1000px',
+    margin: '0 auto',
+    flex: 1,
+    width: '100%',
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2rem',
+  },
+  problemBanner: {
+    backgroundColor: '#1e1b4b',
+    padding: '2rem',
+    borderRadius: '0.75rem',
+    border: '1px solid #4338ca',
+  },
+  sectionHeading: {
+    color: '#f87171',
+    marginTop: 0,
+    marginBottom: '1.5rem',
+    fontSize: '1.5rem',
+  },
+  statsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    gap: '1.5rem',
+  },
+  statBox: {
+    backgroundColor: '#0f172a',
+    padding: '1.25rem',
+    borderRadius: '0.5rem',
+    textAlign: 'center',
+    border: '1px solid #312e81',
+  },
+  statNumber: {
+    fontSize: '1.8rem',
+    fontWeight: 'bold',
+    color: '#f87171',
+    display: 'block',
+    marginBottom: '0.5rem',
+  },
+  statText: {
+    color: '#cbd5e1',
+    margin: 0,
+    fontSize: '0.95rem',
+    lineHeight: '1.4',
+  },
+  detailsCard: {
+    backgroundColor: '#1e293b',
+    padding: '2rem',
+    borderRadius: '0.75rem',
+    border: '1px solid #334155',
+  },
+  solutionCard: {
+    backgroundColor: '#064e3b',
+    padding: '2rem',
+    borderRadius: '0.75rem',
+    border: '1px solid #059669',
+  },
+  cardHeading: {
+    marginTop: 0,
+    fontSize: '1.4rem',
+    color: '#38bdf8',
+  },
+  paragraph: {
+    color: '#cbd5e1',
+    lineHeight: '1.6',
+    fontSize: '1.05rem',
+  },
+  featureList: {
+    color: '#e2e8f0',
+    lineHeight: '1.8',
+    paddingLeft: '1.25rem',
   },
   hero: {
     textAlign: 'center',
@@ -172,29 +355,11 @@ const styles = {
     color: '#38bdf8',
     fontWeight: 'bold',
   },
-  pageContent: {
-    padding: '4rem 2rem',
-    maxWidth: '900px',
-    margin: '0 auto',
-    flex: 1,
-    width: '100%',
-    boxSizing: 'border-box',
-  },
-  pageTitle: {
-    fontSize: '2.5rem',
-    color: '#38bdf8',
-    marginBottom: '1.5rem',
-  },
-  detailsCard: {
-    backgroundColor: '#1e293b',
-    padding: '2.5rem',
-    borderRadius: '0.75rem',
-    border: '1px solid #334155',
-  },
   footer: {
     textAlign: 'center',
     padding: '2rem',
     borderTop: '1px solid #1e293b',
     color: '#64748b',
+    fontSize: '0.9rem',
   },
 };
