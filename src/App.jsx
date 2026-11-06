@@ -19,31 +19,43 @@ export default function App() {
           </div>
         </nav>
 
-        {/* Header with Logos & Organization Names */}
+        {/* Header with 4 Logos & Organization Names */}
         <header style={styles.pageHeader}>
+          {/* 4 Logos Lined Up */}
           <div style={styles.logoRow}>
-            {/* Lions International Emblem */}
             <div style={styles.logoWrapper}>
               <img 
                 src="/lions-logo.png" 
                 alt="Lions International Logo" 
-                style={styles.lionsLogo} 
+                style={styles.logoImg} 
               />
             </div>
-
-            <div style={styles.orgTitles}>
-              <h2 style={styles.orgMain}>LIONS INTERNATIONAL DISTRICT 317F</h2>
-              <h3 style={styles.orgSub}>LIONS CLUB OF BANGALORE BRIGADE (LIONS BRIGADE)</h3>
+            <div style={styles.logoWrapper}>
+              <img 
+                src="/hrdaya-siddhi.png" 
+                alt="Hrdaya Siddhi Logo" 
+                style={styles.logoImg} 
+              />
             </div>
-
-            {/* District 317F Heart Emblem */}
+            <div style={styles.logoWrapper}>
+              <img 
+                src="/lions-association.png" 
+                alt="Lions Association Logo" 
+                style={styles.logoImg} 
+              />
+            </div>
             <div style={styles.logoWrapper}>
               <img 
                 src="/district-logo.png" 
                 alt="Lions District 317F Logo" 
-                style={styles.districtLogo} 
+                style={styles.logoImgScaled} 
               />
             </div>
+          </div>
+
+          <div style={styles.orgTitles}>
+            <h2 style={styles.orgMain}>LIONS INTERNATIONAL DISTRICT 317F</h2>
+            <h3 style={styles.orgSub}>LIONS CLUB OF BANGALORE BRIGADE (LIONS BRIGADE)</h3>
           </div>
 
           <h1 style={styles.pageTitle}>Hrdaya Siddhi</h1>
@@ -213,27 +225,27 @@ const styles = {
     marginBottom: '2rem',
   },
   logoWrapper: {
-    width: '140px',
-    height: '140px',
+    width: '100px',
+    height: '100px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexShrink: 0,
   },
-  lionsLogo: {
+  logoImg: {
     maxWidth: '100%',
     maxHeight: '100%',
     objectFit: 'contain',
   },
-  districtLogo: {
+  logoImgScaled: {
     maxWidth: '100%',
     maxHeight: '100%',
     objectFit: 'contain',
-    transform: 'scale(1.4)', /* Enlarges the district logo graphic specifically to balance both */
+    transform: 'scale(1.3)',
   },
   orgTitles: {
     textAlign: 'center',
-    flex: '1 1 260px',
+    marginBottom: '1rem',
     padding: '0 0.5rem',
   },
   orgMain: {
