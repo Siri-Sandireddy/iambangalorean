@@ -17,7 +17,7 @@ export default function App() {
           <img src="/lions-logo.png" alt="Lions International Logo" style={styles.logoImg} />
         </div>
         <div style={styles.logoWrapper}>
-          <img src="/hrdaya-siddhi.png" alt="Hrdaya Siddhi Logo" style={styles.logoImg} />
+          <img src="/hrdaya-siddhi.jpeg" alt="Hrdaya Siddhi Logo" style={styles.logoImg} />
         </div>
         <div style={styles.logoWrapper}>
           <img src="/lions-association.png" alt="Lions Association Logo" style={styles.logoImg} />
@@ -172,7 +172,7 @@ export default function App() {
     );
   }
 
-  // Default Homepage (Light Theme matching Bangalorean.com reference)
+  // Default Homepage (Light Theme with Buildings Skyline Banner)
   return (
     <div style={styles.unifiedContainer}>
       {/* Top Navbar */}
@@ -197,42 +197,52 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Hero Banner Section */}
-      <header style={styles.heroBanner}>
-        <div style={styles.heroLeft}>
-          <span style={styles.heroSubHeader}>🍃 PEOPLE | PLACES | STORIES | A STRONGER BENGALURU 🍃</span>
-          <h1 style={styles.heroMainTitle}>
-            I Am <span style={styles.heroHighlight}>Bangalorean</span>
-          </h1>
-          <h2 style={styles.heroTagline}>Proud To Be One</h2>
-          <p style={styles.heroBody}>
-            Discover Bengaluru's stories, culture, food, startups, events and the people who make this city extraordinary.
-          </p>
-          <div style={styles.heroButtons}>
-            <button style={styles.ctaGoldBtn} onClick={() => setCurrentPage('hrdaya-siddhi')}>
-              Explore Hrdaya Siddhi →
-            </button>
-            <button style={styles.ctaGreenOutlineBtn} onClick={openRegistrationForm}>
-              Join Community
-            </button>
+      {/* Hero Banner Section with Skyline Buildings */}
+      <header style={styles.heroBannerWithSkyline}>
+        <div style={styles.heroSplit}>
+          <div style={styles.heroLeftSplit}>
+            <span style={styles.heroSubHeader}>🍃 PEOPLE | PLACES | STORIES | A STRONGER BENGALURU 🍃</span>
+            <h1 style={styles.heroMainTitle}>
+              I Am <span style={styles.heroHighlight}>Bangalorean</span>
+            </h1>
+            <h2 style={styles.heroTagline}>Proud To Be One</h2>
+            <p style={styles.heroBody}>
+              Discover Bengaluru's stories, culture, food, startups, events and the people who make this city extraordinary.
+            </p>
+            <div style={styles.heroButtons}>
+              <button style={styles.ctaGoldBtn} onClick={() => setCurrentPage('hrdaya-siddhi')}>
+                Explore Hrdaya Siddhi →
+              </button>
+              <button style={styles.ctaGreenOutlineBtn} onClick={openRegistrationForm}>
+                Join Community
+              </button>
+            </div>
+            <div style={styles.statsBar}>
+              <div style={styles.statItem}>
+                <h3>100K+</h3>
+                <p>Readers</p>
+              </div>
+              <div style={styles.statItem}>
+                <h3>500+</h3>
+                <p>Stories</p>
+              </div>
+              <div style={styles.statItem}>
+                <h3>50+</h3>
+                <p>Events</p>
+              </div>
+              <div style={styles.statItem}>
+                <h3>10K+</h3>
+                <p>Community Members</p>
+              </div>
+            </div>
           </div>
-          <div style={styles.statsBar}>
-            <div style={styles.statItem}>
-              <h3>100K+</h3>
-              <p>Readers</p>
-            </div>
-            <div style={styles.statItem}>
-              <h3>500+</h3>
-              <p>Stories</p>
-            </div>
-            <div style={styles.statItem}>
-              <h3>50+</h3>
-              <p>Events</p>
-            </div>
-            <div style={styles.statItem}>
-              <h3>10K+</h3>
-              <p>Community Members</p>
-            </div>
+
+          <div style={styles.heroRightSkyline}>
+            <img 
+              src="/bengaluru-skyline.jpeg" 
+              alt="Namma Bengaluru Vidhana Soudha & Skyline Buildings" 
+              style={styles.skylineImg} 
+            />
           </div>
         </div>
       </header>
@@ -351,7 +361,6 @@ export default function App() {
 }
 
 const styles = {
-  /* Global Unified Container */
   unifiedContainer: {
     fontFamily: 'Inter, system-ui, sans-serif',
     backgroundColor: '#f8fafc',
@@ -432,14 +441,35 @@ const styles = {
     fontSize: '0.85rem',
     cursor: 'pointer',
   },
-  heroBanner: {
+  heroBannerWithSkyline: {
     backgroundColor: '#edf7ed',
-    padding: '3rem 1.5rem',
+    padding: '2.5rem 1.5rem',
     borderBottom: '1px solid #e2e8f0',
   },
-  heroLeft: {
-    maxWidth: '750px',
+  heroSplit: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    maxWidth: '1200px',
     margin: '0 auto',
+    flexWrap: 'wrap',
+    gap: '2rem',
+  },
+  heroLeftSplit: {
+    flex: '1 1 500px',
+    maxWidth: '650px',
+  },
+  heroRightSkyline: {
+    flex: '1 1 400px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  skylineImg: {
+    width: '100%',
+    maxHeight: '320px',
+    objectFit: 'contain',
+    borderRadius: '0.5rem',
   },
   heroSubHeader: {
     fontSize: '0.75rem',
@@ -472,7 +502,7 @@ const styles = {
   heroButtons: {
     display: 'flex',
     gap: '1rem',
-    marginBottom: '2.5rem',
+    marginBottom: '2rem',
     flexWrap: 'wrap',
   },
   ctaGoldBtn: {
