@@ -17,7 +17,7 @@ export default function App() {
           <img src="/lions-logo.png" alt="Lions International Logo" style={styles.logoImg} />
         </div>
         <div style={styles.logoWrapper}>
-          <img src="/hrdaya-siddhi.png" alt="Hrdaya Siddhi Logo" style={styles.logoImg} />
+          <img src="/hrdaya-siddhi.jpeg" alt="Hrdaya Siddhi Logo" style={styles.logoImg} />
         </div>
         <div style={styles.logoWrapper}>
           <img src="/lions-association.png" alt="Lions Association Logo" style={styles.logoImg} />
