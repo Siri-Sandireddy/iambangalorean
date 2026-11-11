@@ -17,7 +17,7 @@ export default function App() {
           <img src="/lions-logo.png" alt="Lions International Logo" style={styles.logoImg} />
         </div>
         <div style={styles.logoWrapper}>
-          <img src="/hrdaya-siddhi.jpeg" alt="Hrdaya Siddhi Logo" style={styles.logoImg} />
+          <img src="/hrdaya-siddhi.png" alt="Hrdaya Siddhi Logo" style={styles.logoImg} />
         </div>
         <div style={styles.logoWrapper}>
           <img src="/lions-association.png" alt="Lions Association Logo" style={styles.logoImg} />
@@ -44,7 +44,12 @@ export default function App() {
     return (
       <div style={styles.container}>
         <nav style={styles.nav}>
-          <h2 style={styles.logo} onClick={() => setCurrentPage('home')}>I Am Bangalorean</h2>
+          <img 
+            src="/iambangalorean.jpeg" 
+            alt="I Am Bangalorean" 
+            style={styles.navBrandImg} 
+            onClick={() => setCurrentPage('home')} 
+          />
           <button style={styles.navBtn} onClick={() => setCurrentPage('hrdaya-siddhi')}>← Back to Hrdaya Siddhi</button>
         </nav>
         <HrdayaHeader />
@@ -73,7 +78,12 @@ export default function App() {
     return (
       <div style={styles.container}>
         <nav style={styles.nav}>
-          <h2 style={styles.logo} onClick={() => setCurrentPage('home')}>I Am Bangalorean</h2>
+          <img 
+            src="/iambangalorean.jpeg" 
+            alt="I Am Bangalorean" 
+            style={styles.navBrandImg} 
+            onClick={() => setCurrentPage('home')} 
+          />
           <button style={styles.navBtn} onClick={() => setCurrentPage('hrdaya-siddhi')}>← Back to Hrdaya Siddhi</button>
         </nav>
         <HrdayaHeader />
@@ -107,7 +117,12 @@ export default function App() {
     return (
       <div style={styles.container}>
         <nav style={styles.nav}>
-          <h2 style={styles.logo} onClick={() => setCurrentPage('home')}>I Am Bangalorean</h2>
+          <img 
+            src="/iambangalorean.jpeg" 
+            alt="I Am Bangalorean" 
+            style={styles.navBrandImg} 
+            onClick={() => setCurrentPage('home')} 
+          />
           <button style={styles.navBtn} onClick={() => setCurrentPage('home')}>← Back to Home</button>
         </nav>
 
@@ -165,7 +180,12 @@ export default function App() {
   return (
     <div style={styles.container}>
       <nav style={styles.nav}>
-        <h2 style={styles.logo} onClick={() => setCurrentPage('home')}>I Am Bangalorean</h2>
+        <img 
+          src="/iambangalorean.jpeg" 
+          alt="I Am Bangalorean" 
+          style={styles.navBrandImg} 
+          onClick={() => setCurrentPage('home')} 
+        />
         <div style={styles.navLinks}>
           <button style={styles.navBtn} onClick={() => setCurrentPage('home')}>Home</button>
           <button style={styles.navBtn} onClick={() => setCurrentPage('about')}>About</button>
@@ -220,6 +240,11 @@ const styles = {
     padding: '1.25rem 2rem',
     borderBottom: '1px solid #1e293b',
     backgroundColor: '#0a1329',
+  },
+  navBrandImg: {
+    height: '36px',
+    objectFit: 'contain',
+    cursor: 'pointer',
   },
   logo: {
     margin: 0,
