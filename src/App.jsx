@@ -56,13 +56,27 @@ export default function App() {
         <main style={styles.pageContent}>
           <div style={{ ...styles.lightCard, borderColor: '#dc2626' }}>
             <div style={styles.badgeDanger}>AWARENESS</div>
-            <h2 style={{ ...styles.cardHeading, color: '#dc2626' }}>Heart Attack Awareness</h2>
+            <h2 style={{ ...styles.cardHeading, color: '#dc2626' }}>1. Heart Attack Awareness & Silent Risk Factors</h2>
+            
             <p style={styles.paragraph}>
-              Cardiovascular diseases cause between 17.9 million to 20.5 million deaths globally each year, with heart attacks and strokes accounting for roughly 85% of these fatalities. India accounts for 20% of all heart attack deaths worldwide, with an alarming rise in young adults. 1 in 4 heart attacks occur silently without prior symptoms.
+              Cardiovascular diseases (CVDs) remain the leading cause of mortality worldwide, taking an estimated 17.9 to 20.5 million lives every year. Heart attacks and strokes account for over 85% of these fatalities. India currently bears a massive portion of the global burden, accounting for nearly 20% of all heart attack deaths worldwide. Alarmingly, heart disease in urban India is striking individuals a decade earlier than in Western populations, with a sharp spike among young adults aged 25 to 45.
             </p>
+
+            <h3 style={styles.subHeading}>The Threat of Silent Ischemia</h3>
+            <p style={styles.paragraph}>
+              Nearly 1 in 4 heart attacks occur silently, without the classic crushing chest pain or left arm numbness. Arterial plaque can accumulate inside the coronary arteries gradually over decades without causing noticeable shortness of breath or discomfort. By the time noticeable symptoms appear, arterial blockages have often progressed beyond 70%, putting the patient at immediate risk of acute myocardial infarction or sudden cardiac arrest.
+            </p>
+
+            <h3 style={styles.subHeading}>Key Risk Indicators</h3>
+            <ul style={styles.featureList}>
+              <li><strong>Sedentary Lifestyle & Chronic Stress:</strong> Extended desk hours, elevated cortisol levels, and minimal physical exertion accelerate arterial inflammation.</li>
+              <li><strong>Metabolic Markers:</strong> Uncontrolled HbA1c (diabetes), elevated LDL cholesterol, and hypertension significantly damage blood vessel linings.</li>
+              <li><strong>Genetic Predisposition:</strong> Family history of premature coronary artery disease drastically increases baseline risk.</li>
+            </ul>
+
             <div style={styles.actionRow}>
               <button style={styles.ctaGoldBtn} onClick={openRegistrationForm}>
-                Register Here →
+                Register For Screening →
               </button>
             </div>
           </div>
@@ -89,18 +103,38 @@ export default function App() {
         <main style={styles.pageContent}>
           <div style={{ ...styles.lightCard, borderColor: '#16a34a' }}>
             <div style={styles.badgeSuccess}>DIAGNOSTICS</div>
-            <h2 style={{ ...styles.cardHeading, color: '#16a34a' }}>2. CCTA & CAC Tests</h2>
+            <h2 style={{ ...styles.cardHeading, color: '#16a34a' }}>2. What is CAC + CCTA? Advanced Cardiac Diagnostics</h2>
+            
             <p style={styles.paragraph}>
-              <strong>Coronary CT Angiography (CCTA)</strong> offers a non-invasive, 5-minute cardiac scan with 99% accuracy in identifying hidden coronary blockages 5 to 10 years before a heart attack happens.
+              Traditional diagnostic tools such as routine ECGs or basic Treadmill Stress Tests (TMT) often fail to identify early-stage coronary artery disease because they only detect abnormalities when arterial flow is severely restricted. Modern preventive cardiology relies on <strong>CAC (Coronary Artery Calcium) Scoring</strong> and <strong>CCTA (Coronary CT Angiography)</strong> to visualize the coronary arteries non-invasively with over 99% accuracy.
+            </p>
+
+            <h3 style={styles.subHeading}>1. Coronary Artery Calcium (CAC) Score</h3>
+            <p style={styles.paragraph}>
+              A CAC scan is a fast, low-radiation CT scan performed without contrast dye. It measures calcified plaque deposits inside the walls of your coronary arteries. Your Agatston score provides an immediate risk profile:
             </p>
             <ul style={styles.featureList}>
-              <li>Non-Invasive 5-minute scan</li>
-              <li>No hospital admission required</li>
-              <li>Detects hidden plaque build-up early</li>
+              <li><strong>Score 0:</strong> No calcified plaque detected; very low 10-year cardiac risk.</li>
+              <li><strong>Score 1–99:</strong> Mild plaque build-up; early intervention recommended.</li>
+              <li><strong>Score 100–399:</strong> Moderate plaque build-up; requires proactive medical guidance.</li>
+              <li><strong>Score 400+:</strong> Severe calcification; high risk of blockage, requiring immediate follow-up.</li>
             </ul>
+
+            <h3 style={styles.subHeading}>2. Coronary CT Angiography (CCTA)</h3>
+            <p style={styles.paragraph}>
+              CCTA combines advanced multi-slice CT technology with an IV contrast dye to create detailed 3D maps of your heart’s blood vessels. Unlike CAC alone, CCTA detects non-calcified "soft" plaque—the unstable type of plaque most prone to sudden rupture causing unexpected heart attacks.
+            </p>
+
+            <h3 style={styles.subHeading}>Why Choose CAC + CCTA Early Screening?</h3>
+            <ul style={styles.featureList}>
+              <li><strong>5-Minute Non-Invasive Procedure:</strong> Completed quickly without hospital admission or groin catheterization.</li>
+              <li><strong>5 to 10 Year Advance Warning:</strong> Identifies subtle arterial narrowing long before symptoms or heart damage occur.</li>
+              <li><strong>99% Accuracy:</strong> Gold-standard precision for ruling out major coronary artery blockages.</li>
+            </ul>
+
             <div style={styles.actionRow}>
               <button style={styles.ctaGoldBtn} onClick={openRegistrationForm}>
-                Register Here →
+                Register For CCTA / CAC Screening →
               </button>
             </div>
           </div>
@@ -130,7 +164,7 @@ export default function App() {
           <div style={styles.summaryCard}>
             <div style={styles.badgeInfo}>INITIATIVE SUMMARY</div>
             <p style={styles.summaryText}>
-              Cardiovascular diseases claim roughly 17.9 to 20.5 million lives globally each year, with India accounting for 20% of all heart attack deaths worldwide. 1 in 4 heart attacks occur without warning signs, but blockages can be detected 5 to 10 years earlier through non-invasive CCTA screening. The Hrdaya Siddhi initiative by Lions District 317F aims to save lives through early detection and screening awareness.
+              Cardiovascular diseases claim roughly 17.9 to 20.5 million lives globally each year, with India accounting for 20% of all heart attack deaths worldwide. 1 in 4 heart attacks occur without warning signs, but blockages can be detected 5 to 10 years earlier through non-invasive CCTA screening. Spearheaded by Lions District 317F, Lions Club of Bangalore Brigade, and LEO Club Asraya, the Hrdaya Siddhi initiative is dedicated to saving lives by providing community awareness, non-invasive risk assessment, and organized early cardiac screening programs across Bengaluru.
             </p>
           </div>
 
@@ -690,8 +724,15 @@ const styles = {
     borderRadius: '0.75rem',
     border: '1px solid #e2e8f0',
   },
-  actionRow: {
+  subHeading: {
+    fontSize: '1.1rem',
+    color: '#1e293b',
     marginTop: '1.5rem',
+    marginBottom: '0.5rem',
+    fontWeight: '700',
+  },
+  actionRow: {
+    marginTop: '1.75rem',
     display: 'flex',
     justifyContent: 'flex-start',
   },
@@ -728,12 +769,12 @@ const styles = {
   cardHeading: {
     marginTop: 0,
     marginBottom: '0.85rem',
-    fontSize: '1.25rem',
+    fontSize: '1.35rem',
     fontWeight: '700',
   },
   paragraph: {
     color: '#334155',
-    lineHeight: '1.6',
+    lineHeight: '1.65',
     fontSize: '0.95rem',
     margin: 0,
   },
@@ -741,7 +782,8 @@ const styles = {
     color: '#334155',
     lineHeight: '1.8',
     paddingLeft: '1.25rem',
-    marginTop: '0.85rem',
+    marginTop: '0.75rem',
+    marginBottom: '0.75rem',
   },
   cardGrid: {
     display: 'grid',
