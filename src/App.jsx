@@ -56,7 +56,7 @@ export default function App() {
         <main style={styles.pageContent}>
           <div style={{ ...styles.lightCard, borderColor: '#dc2626' }}>
             <div style={styles.badgeDanger}>AWARENESS</div>
-            <h2 style={{ ...styles.cardHeading, color: '#dc2626' }}>1. Heart Attack Awareness</h2>
+            <h2 style={{ ...styles.cardHeading, color: '#dc2626' }}>Heart Attack Awareness</h2>
             <p style={styles.paragraph}>
               Cardiovascular diseases cause between 17.9 million to 20.5 million deaths globally each year, with heart attacks and strokes accounting for roughly 85% of these fatalities. India accounts for 20% of all heart attack deaths worldwide, with an alarming rise in young adults. 1 in 4 heart attacks occur silently without prior symptoms.
             </p>
@@ -172,7 +172,7 @@ export default function App() {
     );
   }
 
-  // Default Homepage (Light Theme with Buildings Skyline Banner)
+  // Default Homepage
   return (
     <div style={styles.unifiedContainer}>
       {/* Top Navbar */}
@@ -193,13 +193,12 @@ export default function App() {
         </div>
         <div style={styles.navRight}>
           <input type="text" placeholder="Search Bengaluru..." style={styles.searchInput} />
-          <button style={styles.joinBtn} onClick={openRegistrationForm}>Join Community</button>
         </div>
       </nav>
 
-      {/* Hero Banner Section with Skyline Buildings */}
+      {/* Hero Banner Section */}
       <header style={styles.heroBannerWithSkyline}>
-        <div style={styles.heroSplit}>
+        <div style={styles.heroStack}>
           <div style={styles.heroLeftSplit}>
             <span style={styles.heroSubHeader}>🍃 PEOPLE | PLACES | STORIES | A STRONGER BENGALURU 🍃</span>
             <h1 style={styles.heroMainTitle}>
@@ -213,31 +212,10 @@ export default function App() {
               <button style={styles.ctaGoldBtn} onClick={() => setCurrentPage('hrdaya-siddhi')}>
                 Explore Hrdaya Siddhi →
               </button>
-              <button style={styles.ctaGreenOutlineBtn} onClick={openRegistrationForm}>
-                Join Community
-              </button>
-            </div>
-            <div style={styles.statsBar}>
-              <div style={styles.statItem}>
-                <h3>100K+</h3>
-                <p>Readers</p>
-              </div>
-              <div style={styles.statItem}>
-                <h3>500+</h3>
-                <p>Stories</p>
-              </div>
-              <div style={styles.statItem}>
-                <h3>50+</h3>
-                <p>Events</p>
-              </div>
-              <div style={styles.statItem}>
-                <h3>10K+</h3>
-                <p>Community Members</p>
-              </div>
             </div>
           </div>
 
-          <div style={styles.heroRightSkyline}>
+          <div style={styles.heroBannerImageWrapper}>
             <img 
               src="/bengaluru-skyline.jpeg" 
               alt="Namma Bengaluru Vidhana Soudha & Skyline Buildings" 
@@ -306,11 +284,6 @@ export default function App() {
               <h3>Hrdaya Siddhi - Heart Attack Awareness & CCTA Screening</h3>
               <p>Learn about Lions District 317F early detection cardiac screening initiative.</p>
             </div>
-            <div style={styles.storyCard}>
-              <div style={styles.storyTagGreen}>CITY UPDATES</div>
-              <h3>Namma Metro Expansion in 2026 – What to Expect</h3>
-              <p>Key highlights of new line openings across Namma Bengaluru.</p>
-            </div>
           </div>
         </div>
 
@@ -329,16 +302,6 @@ export default function App() {
               <div style={styles.eventInfo}>
                 <h4>Hrdaya Siddhi CCTA Camp</h4>
                 <p>Lions Club Brigade • 9:00 AM</p>
-              </div>
-            </div>
-            <div style={styles.eventItem}>
-              <div style={styles.eventDate}>
-                <span style={styles.eventMonth}>NOV</span>
-                <span style={styles.eventDay}>20</span>
-              </div>
-              <div style={styles.eventInfo}>
-                <h4>Bengaluru Startup Meetup</h4>
-                <p>Indiranagar • 5:00 PM</p>
               </div>
             </div>
           </div>
@@ -374,27 +337,27 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '1rem 1.5rem',
+    padding: '0.75rem 1.25rem',
     backgroundColor: '#ffffff',
     borderBottom: '1px solid #e2e8f0',
     flexWrap: 'wrap',
-    gap: '1rem',
+    gap: '0.75rem',
   },
   navBrandImg: {
-    height: '36px',
+    height: '32px',
     objectFit: 'contain',
     cursor: 'pointer',
   },
   navLinksRow: {
     display: 'flex',
-    gap: '1rem',
+    gap: '0.75rem',
     flexWrap: 'wrap',
   },
   navLink: {
     background: 'none',
     border: 'none',
     color: '#475569',
-    fontSize: '0.9rem',
+    fontSize: '0.85rem',
     cursor: 'pointer',
     fontWeight: '500',
   },
@@ -402,7 +365,7 @@ const styles = {
     background: 'none',
     border: 'none',
     color: '#16a34a',
-    fontSize: '0.9rem',
+    fontSize: '0.85rem',
     cursor: 'pointer',
     fontWeight: '700',
     borderBottom: '2px solid #16a34a',
@@ -411,62 +374,51 @@ const styles = {
     background: 'none',
     border: '1px solid #cbd5e1',
     color: '#475569',
-    padding: '0.4rem 1rem',
+    padding: '0.35rem 0.85rem',
     borderRadius: '0.375rem',
     cursor: 'pointer',
-    fontSize: '0.9rem',
+    fontSize: '0.85rem',
     fontWeight: '500',
   },
   navRight: {
     display: 'flex',
-    gap: '0.75rem',
+    gap: '0.5rem',
     alignItems: 'center',
     flexWrap: 'wrap',
   },
   searchInput: {
-    padding: '0.4rem 0.8rem',
+    padding: '0.35rem 0.75rem',
     borderRadius: '2rem',
     border: '1px solid #cbd5e1',
     backgroundColor: '#f1f5f9',
     outline: 'none',
-    fontSize: '0.85rem',
-  },
-  joinBtn: {
-    backgroundColor: '#16a34a',
-    color: '#ffffff',
-    border: 'none',
-    padding: '0.5rem 1rem',
-    borderRadius: '0.5rem',
-    fontWeight: '600',
-    fontSize: '0.85rem',
-    cursor: 'pointer',
+    fontSize: '0.8rem',
   },
   heroBannerWithSkyline: {
     backgroundColor: '#edf7ed',
-    padding: '2.5rem 1.5rem',
+    padding: '2rem 1.25rem',
     borderBottom: '1px solid #e2e8f0',
   },
-  heroSplit: {
+  heroStack: {
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    maxWidth: '1200px',
+    maxWidth: '1000px',
     margin: '0 auto',
-    flexWrap: 'wrap',
-    gap: '2rem',
+    gap: '1.5rem',
   },
   heroLeftSplit: {
-    flex: '1 1 500px',
-    maxWidth: '650px',
+    width: '100%',
+    textAlign: 'center',
   },
-  heroRightSkyline: {
-    flex: '1 1 400px',
+  heroBannerImageWrapper: {
+    width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
   },
   skylineImg: {
     width: '100%',
+    maxWidth: '850px',
     maxHeight: '320px',
     objectFit: 'contain',
     borderRadius: '0.5rem',
@@ -478,7 +430,7 @@ const styles = {
     letterSpacing: '0.08em',
   },
   heroMainTitle: {
-    fontSize: '2.75rem',
+    fontSize: '2.5rem',
     margin: '0.5rem 0 0 0',
     color: '#0f172a',
     fontWeight: '800',
@@ -488,63 +440,49 @@ const styles = {
     color: '#d97706',
   },
   heroTagline: {
-    fontSize: '1.6rem',
-    margin: '0 0 1rem 0',
+    fontSize: '1.4rem',
+    margin: '0 0 0.75rem 0',
     color: '#1e293b',
     fontWeight: '600',
   },
   heroBody: {
-    fontSize: '1rem',
+    fontSize: '0.95rem',
     color: '#475569',
     lineHeight: '1.6',
-    marginBottom: '1.75rem',
+    marginBottom: '1.5rem',
+    maxWidth: '700px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   heroButtons: {
     display: 'flex',
-    gap: '1rem',
-    marginBottom: '2rem',
+    justifyContent: 'center',
+    gap: '0.75rem',
+    marginBottom: '1rem',
     flexWrap: 'wrap',
   },
   ctaGoldBtn: {
     backgroundColor: '#d97706',
     color: '#ffffff',
     border: 'none',
-    padding: '0.75rem 1.5rem',
+    padding: '0.65rem 1.25rem',
     borderRadius: '0.5rem',
     fontWeight: '700',
     cursor: 'pointer',
-    fontSize: '0.95rem',
-  },
-  ctaGreenOutlineBtn: {
-    backgroundColor: 'transparent',
-    color: '#16a34a',
-    border: '1.5px solid #16a34a',
-    padding: '0.75rem 1.5rem',
-    borderRadius: '0.5rem',
-    fontWeight: '700',
-    cursor: 'pointer',
-    fontSize: '0.95rem',
-  },
-  statsBar: {
-    display: 'flex',
-    gap: '1.5rem',
-    flexWrap: 'wrap',
-  },
-  statItem: {
-    textAlign: 'left',
+    fontSize: '0.9rem',
   },
   sectionContainer: {
-    padding: '2.5rem 1.5rem',
+    padding: '2rem 1.25rem',
     maxWidth: '1100px',
     margin: '0 auto',
     boxSizing: 'border-box',
   },
   flexSectionContainer: {
-    padding: '2.5rem 1.5rem',
+    padding: '2rem 1.25rem',
     maxWidth: '1100px',
     margin: '0 auto',
     display: 'flex',
-    gap: '2rem',
+    gap: '1.5rem',
     flexWrap: 'wrap',
     boxSizing: 'border-box',
   },
@@ -557,14 +495,14 @@ const styles = {
     gap: '0.5rem',
   },
   sectionTitle: {
-    fontSize: '1.4rem',
+    fontSize: '1.3rem',
     margin: 0,
     color: '#0f172a',
   },
   sectionSubtitle: {
     margin: '0.25rem 0 0 0',
     color: '#64748b',
-    fontSize: '0.9rem',
+    fontSize: '0.85rem',
   },
   viewLink: {
     color: '#16a34a',
@@ -574,26 +512,26 @@ const styles = {
   },
   categoryGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
-    gap: '1rem',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))',
+    gap: '0.85rem',
   },
   categoryCard: {
     backgroundColor: '#ffffff',
-    padding: '1rem',
+    padding: '0.85rem',
     borderRadius: '0.75rem',
     border: '1px solid #e2e8f0',
     textAlign: 'center',
     cursor: 'pointer',
   },
   categoryIcon: {
-    fontSize: '1.6rem',
+    fontSize: '1.5rem',
     display: 'block',
     marginBottom: '0.35rem',
   },
   storiesGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-    gap: '1.25rem',
+    gap: '1rem',
   },
   storyCard: {
     backgroundColor: '#ffffff',
@@ -608,12 +546,6 @@ const styles = {
     color: '#dc2626',
     marginBottom: '0.5rem',
   },
-  storyTagGreen: {
-    fontSize: '0.75rem',
-    fontWeight: '700',
-    color: '#16a34a',
-    marginBottom: '0.5rem',
-  },
   eventsSidebar: {
     backgroundColor: '#ffffff',
     padding: '1.25rem',
@@ -625,7 +557,6 @@ const styles = {
     gap: '0.75rem',
     alignItems: 'center',
     padding: '0.75rem 0',
-    borderBottom: '1px solid #f1f5f9',
     cursor: 'pointer',
   },
   eventDate: {
@@ -648,28 +579,26 @@ const styles = {
   },
   subscribeBar: {
     backgroundColor: '#fef3c7',
-    padding: '2rem 1.5rem',
+    padding: '1.75rem 1.25rem',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     flexWrap: 'wrap',
-    gap: '1.5rem',
+    gap: '1.25rem',
     maxWidth: '1100px',
-    margin: '2rem auto 0 auto',
+    margin: '1.5rem auto 0 auto',
     borderRadius: '0.75rem',
   },
   emailInput: {
-    padding: '0.65rem 1rem',
+    padding: '0.6rem 0.85rem',
     borderRadius: '0.5rem',
     border: '1px solid #cbd5e1',
-    minWidth: '220px',
+    minWidth: '200px',
     outline: 'none',
   },
-
-  /* Hrdaya Siddhi Header & Cards (Light Theme Match) */
   pageHeader: {
     textAlign: 'center',
-    padding: '2.5rem 1.5rem 1rem 1.5rem',
+    padding: '2rem 1.25rem 1rem 1.25rem',
     maxWidth: '1000px',
     margin: '0 auto',
     width: '100%',
@@ -680,12 +609,12 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
-    gap: '1.5rem',
-    marginBottom: '1.75rem',
+    gap: '1.25rem',
+    marginBottom: '1.5rem',
   },
   logoWrapper: {
-    width: '85px',
-    height: '85px',
+    width: '75px',
+    height: '75px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -700,39 +629,39 @@ const styles = {
     maxWidth: '100%',
     maxHeight: '100%',
     objectFit: 'contain',
-    transform: 'scale(1.35)',
+    transform: 'scale(1.25)',
   },
   orgTitles: {
     textAlign: 'center',
-    marginBottom: '1.25rem',
+    marginBottom: '1rem',
     padding: '0 0.5rem',
   },
   orgMain: {
-    fontSize: '1.25rem',
+    fontSize: '1.15rem',
     color: '#d97706',
-    margin: '0 0 0.35rem 0',
+    margin: '0 0 0.25rem 0',
     fontWeight: '700',
   },
   orgSub: {
-    fontSize: '0.95rem',
+    fontSize: '0.85rem',
     color: '#16a34a',
     margin: 0,
     fontWeight: '600',
   },
   pageTitle: {
-    fontSize: '2.75rem',
+    fontSize: '2.5rem',
     color: '#dc2626',
-    margin: '0.5rem 0 0.35rem 0',
+    margin: '0.5rem 0 0.25rem 0',
     fontWeight: '800',
     cursor: 'pointer',
   },
   tagline: {
-    fontSize: '1.05rem',
+    fontSize: '0.95rem',
     color: '#475569',
     margin: 0,
   },
   pageContent: {
-    padding: '1.5rem',
+    padding: '1.25rem',
     maxWidth: '960px',
     margin: '0 auto',
     flex: 1,
@@ -740,116 +669,116 @@ const styles = {
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
-    gap: '2rem',
+    gap: '1.5rem',
   },
   summaryCard: {
     backgroundColor: '#ffffff',
-    padding: '2rem',
+    padding: '1.5rem',
     borderRadius: '0.75rem',
     border: '1px solid #e2e8f0',
     borderLeft: '4px solid #16a34a',
   },
   summaryText: {
     color: '#334155',
-    lineHeight: '1.7',
-    fontSize: '1.05rem',
+    lineHeight: '1.6',
+    fontSize: '0.95rem',
     margin: 0,
   },
   lightCard: {
     backgroundColor: '#ffffff',
-    padding: '2.25rem',
+    padding: '1.75rem',
     borderRadius: '0.75rem',
     border: '1px solid #e2e8f0',
   },
   actionRow: {
-    marginTop: '2rem',
+    marginTop: '1.5rem',
     display: 'flex',
     justifyContent: 'flex-start',
   },
   badgeInfo: {
     display: 'inline-block',
-    fontSize: '0.75rem',
+    fontSize: '0.7rem',
     fontWeight: '700',
     color: '#16a34a',
     backgroundColor: '#dcfce7',
-    padding: '0.25rem 0.6rem',
+    padding: '0.2rem 0.5rem',
     borderRadius: '0.25rem',
-    marginBottom: '1rem',
+    marginBottom: '0.75rem',
   },
   badgeDanger: {
     display: 'inline-block',
-    fontSize: '0.75rem',
+    fontSize: '0.7rem',
     fontWeight: '700',
     color: '#dc2626',
     backgroundColor: '#fee2e2',
-    padding: '0.25rem 0.6rem',
+    padding: '0.2rem 0.5rem',
     borderRadius: '0.25rem',
-    marginBottom: '1rem',
+    marginBottom: '0.75rem',
   },
   badgeSuccess: {
     display: 'inline-block',
-    fontSize: '0.75rem',
+    fontSize: '0.7rem',
     fontWeight: '700',
     color: '#16a34a',
     backgroundColor: '#dcfce7',
-    padding: '0.25rem 0.6rem',
+    padding: '0.2rem 0.5rem',
     borderRadius: '0.25rem',
-    marginBottom: '1rem',
+    marginBottom: '0.75rem',
   },
   cardHeading: {
     marginTop: 0,
-    marginBottom: '1rem',
-    fontSize: '1.4rem',
+    marginBottom: '0.85rem',
+    fontSize: '1.25rem',
     fontWeight: '700',
   },
   paragraph: {
     color: '#334155',
-    lineHeight: '1.7',
-    fontSize: '1.05rem',
+    lineHeight: '1.6',
+    fontSize: '0.95rem',
     margin: 0,
   },
   featureList: {
     color: '#334155',
-    lineHeight: '1.9',
+    lineHeight: '1.8',
     paddingLeft: '1.25rem',
-    marginTop: '1rem',
+    marginTop: '0.85rem',
   },
   cardGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-    gap: '1.5rem',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+    gap: '1.25rem',
   },
   actionCard: {
     backgroundColor: '#ffffff',
-    padding: '1.75rem',
+    padding: '1.5rem',
     borderRadius: '0.75rem',
     border: '1.5px solid #e2e8f0',
     cursor: 'pointer',
   },
   cardNumber: {
-    fontSize: '0.85rem',
+    fontSize: '0.8rem',
     fontWeight: '800',
     display: 'block',
-    marginBottom: '0.5rem',
+    marginBottom: '0.4rem',
   },
   actionTitle: {
     marginTop: 0,
-    marginBottom: '0.5rem',
-    fontSize: '1.2rem',
+    marginBottom: '0.4rem',
+    fontSize: '1.1rem',
     fontWeight: '700',
   },
   actionDesc: {
     color: '#64748b',
     margin: 0,
-    fontSize: '0.95rem',
-    lineHeight: '1.5',
+    fontSize: '0.9rem',
+    lineHeight: '1.4',
   },
   footer: {
     textAlign: 'center',
-    padding: '2rem',
+    padding: '1.5rem',
     borderTop: '1px solid #e2e8f0',
     color: '#64748b',
-    fontSize: '0.85rem',
+    fontSize: '0.8rem',
     backgroundColor: '#ffffff',
   },
 };
