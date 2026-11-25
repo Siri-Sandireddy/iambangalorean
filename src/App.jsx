@@ -216,16 +216,10 @@ function HrdayaSiddhiPage() {
 
       <main className="detail-main">
         <div className="organization-logos">
-          <img src="/lions-association.png" alt="Lions Association" />
-          <img src="/hrdaya-siddhi.jpeg" alt="Hrdaya Siddhi" />
           <img src="/lions-logo.png" alt="Lions Club" />
-          <img
-            src="/district-logo.png"
-            alt="District Logo"
-            onError={(e) => {
-              e.currentTarget.style.display = "none";
-            }}
-          />
+          <img src="/hrdaya-siddhi.jpeg" alt="Hrdaya Siddhi" />
+          <img src="/district-logo.png" alt="Lions District 317F" />
+          <img src="/leologo.png" alt="LEO Club" />
         </div>
 
         <section className="detail-title-section">
