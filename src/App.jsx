@@ -218,7 +218,11 @@ function HrdayaSiddhiPage() {
         <div className="organization-logos">
           <img src="/lions-logo.png" alt="Lions Club" />
           <img src="/hrdaya-siddhi.jpeg" alt="Hrdaya Siddhi" />
-          <img src="/district-logo.png" alt="Lions District 317F" />
+          <img
+            src="/district-logo.png"
+            alt="Lions District 317F"
+            className="district-logo"
+          />
           <img src="/leologo.png" alt="LEO Club" />
         </div>
 
