@@ -215,13 +215,21 @@ function HrdayaSiddhiPage() {
       </header>
 
       <main className="detail-main">
-        <div className="organization-logos">
+        <div
+          className="organization-logos"
+          style={{ gap: "46px" }}
+        >
           <img src="/lions-logo.png" alt="Lions Club" />
-          <img src="/hrdaya-siddhi.jpeg" alt="Hrdaya Siddhi" />
+          <img
+            src="/hrdaya-siddhi.jpeg"
+            alt="Hrdaya Siddhi"
+            className="hrdaya-logo"
+          />
           <img
             src="/district-logo.png"
             alt="Lions District 317F"
             className="district-logo"
+            style={{ transform: "scale(2.15)" }}
           />
           <img src="/leologo.png" alt="LEO Club" />
         </div>
