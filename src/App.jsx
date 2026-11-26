@@ -157,8 +157,8 @@ function AwarenessOrCctaPage({ mode }) {
                   Hrdaya Siddhi aims to spread awareness through community
                   education, health information and organized screening
                   initiatives across Bengaluru. The objective is to encourage
-                  people to understand their heart health and consult
-                  healthcare professionals when needed.
+                  people to understand their heart health and consult healthcare
+                  professionals when needed.
                 </p>
               </section>
             </div>
@@ -254,6 +254,7 @@ function AwarenessOrCctaPage({ mode }) {
 function HrdayaSiddhiPage() {
   const navigate = useNavigate();
   const { hash } = useLocation();
+  const [awarenessExpanded, setAwarenessExpanded] = useState(false);
 
   useEffect(() => {
     if (hash === "#register") {
@@ -348,11 +349,42 @@ function HrdayaSiddhiPage() {
             <button
               type="button"
               className="secondary-detail-btn"
-              onClick={() => navigate("/hrdayasiddhi/awareness")}
+              onClick={() => setAwarenessExpanded((prev) => !prev)}
             >
-              Read Full Heart Health Awareness Guide →
+              {awarenessExpanded
+                ? "Hide Heart Health Awareness Guide ↑"
+                : "Read Full Heart Health Awareness Guide →"}
             </button>
           </div>
+
+          {awarenessExpanded && (
+            <div className="inline-awareness-magnified">
+              <h3>Heart Health Awareness — Key Points</h3>
+
+              <div className="inline-awareness-grid">
+                <div className="inline-awareness-box">
+                  <h4>Common Risk Factors</h4>
+                  <ul>
+                    <li>High blood pressure</li>
+                    <li>High cholesterol</li>
+                    <li>Diabetes</li>
+                    <li>Smoking and tobacco use</li>
+                    <li>Physical inactivity &amp; family history</li>
+                  </ul>
+                </div>
+
+                <div className="inline-awareness-box">
+                  <h4>Warning Signs &amp; Prevention</h4>
+                  <ul>
+                    <li>Chest discomfort, shortness of breath, or unusual sweating</li>
+                    <li>Discomfort in arms, back, neck, jaw, or unusual fatigue</li>
+                    <li>Regular physical activity, balanced diet &amp; check-ups</li>
+                    <li>Seek urgent medical care if heart attack signs appear</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
         </section>
 
         {/* 3rd ORDER: SOLUTION (ABOUT THE TESTS + PLAYABLE DOCTOR VIDEOS + MAGNIFICATION) */}
