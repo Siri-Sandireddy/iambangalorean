@@ -759,17 +759,42 @@ img {
   background: #0f172a;
 }
 
-.inline-test-video {
-  display: block;
+.youtube-frame {
+  position: relative;
   width: 100%;
-  max-height: 320px;
-  object-fit: contain;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #0f172a;
+}
+
+.inline-youtube-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
   transition: transform 0.25s ease;
 }
 
-.video-frame.is-magnified .inline-test-video {
+.video-frame.is-magnified .inline-youtube-iframe {
   transform: scale(1.4);
   transform-origin: center center;
+}
+
+.video-card-footer {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.video-card-footer a {
+  color: #079b4b;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.video-card-footer a:hover {
+  text-decoration: underline;
 }
 
 /* 4th ORDER: PARTNERS FOR HRDAYA SIDDHI */

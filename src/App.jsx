@@ -5,22 +5,24 @@ import "./App.css";
 
 const TEST_VIDEOS = [
   {
-    id: "ccta",
-    title: "CCTA (Coronary CT Angiography) — Doctor Overview",
-    doctorNote: "How non-invasive coronary CT imaging checks for artery narrowing.",
-    videoSrc: "/videos/ccta-doctor.mp4",
-    posterSrc: "/hrdaya-siddhi.jpeg",
+    id: "ccta-cac-overview",
+    title: "CT Calcium Scoring & CT Coronary Angiography — Doctor Overview",
+    doctorNote:
+      "Dr. Simmi Manocha explains CT calcium scoring and CT coronary angiography for diagnosing blockages.",
+    embedUrl: "https://www.youtube.com/embed/LK8joGYi6jw",
+    watchUrl: "https://www.youtube.com/watch?v=LK8joGYi6jw",
   },
   {
-    id: "cac",
-    title: "CAC Scoring (Calcium Scan) — Doctor Overview",
-    doctorNote: "What coronary calcium scoring measures and when doctors recommend it.",
-    videoSrc: "/videos/cac-doctor.mp4",
-    posterSrc: "/hrdaya-siddhi.jpeg",
+    id: "cac-score",
+    title: "Coronary Artery Calcium Scan (Calcium Heart Score) Explained",
+    doctorNote:
+      "South Denver Cardiology walks through how coronary calcium scoring evaluates heart risk.",
+    embedUrl: "https://www.youtube.com/embed/zg1hg0nWBjs",
+    watchUrl: "https://www.youtube.com/watch?v=zg1hg0nWBjs",
   },
 ];
 
-function DoctorTestVideoCard({ title, doctorNote, videoSrc, posterSrc }) {
+function DoctorTestVideoCard({ title, doctorNote, embedUrl, watchUrl }) {
   const [magnified, setMagnified] = useState(false);
 
   return (
@@ -40,17 +42,20 @@ function DoctorTestVideoCard({ title, doctorNote, videoSrc, posterSrc }) {
         </button>
       </div>
 
-      <div className={`video-frame ${magnified ? "is-magnified" : ""}`}>
-        <video
-          controls
-          preload="metadata"
-          playsInline
-          poster={posterSrc}
-          className="inline-test-video"
-        >
-          <source src={videoSrc} type="video/mp4" />
-          Your browser does not support inline video playback.
-        </video>
+      <div className={`video-frame youtube-frame ${magnified ? "is-magnified" : ""}`}>
+        <iframe
+          src={embedUrl}
+          title={title}
+          className="inline-youtube-iframe"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+
+      <div className="video-card-footer">
+        <a href={watchUrl} target="_blank" rel="noreferrer">
+          Watch on YouTube ↗
+        </a>
       </div>
     </div>
   );
@@ -98,11 +103,10 @@ function AwarenessOrCctaPage({ mode }) {
             <section className="initiative-detail-intro">
               <h2>Why Heart Health Awareness Matters</h2>
               <p>
-                Heart health awareness helps people understand
-                cardiovascular diseases, recognize possible warning
-                signs, and take preventive steps. Many heart-related
-                conditions may develop without obvious symptoms.
-                Learning about risk factors and seeking timely medical
+                Heart health awareness helps people understand cardiovascular
+                diseases, recognize possible warning signs, and take preventive
+                steps. Many heart-related conditions may develop without obvious
+                symptoms. Learning about risk factors and seeking timely medical
                 advice can make an important difference.
               </p>
             </section>
@@ -131,9 +135,8 @@ function AwarenessOrCctaPage({ mode }) {
                 </ul>
 
                 <p className="medical-note">
-                  Warning signs can vary. Seek emergency medical
-                  attention if you think someone may be having a
-                  heart attack.
+                  Warning signs can vary. Seek emergency medical attention if
+                  you think someone may be having a heart attack.
                 </p>
               </section>
 
@@ -151,12 +154,11 @@ function AwarenessOrCctaPage({ mode }) {
               <section className="information-card">
                 <h2>Our Awareness Initiative</h2>
                 <p>
-                  Hrdaya Siddhi aims to spread awareness through
-                  community education, health information and
-                  organized screening initiatives across Bengaluru.
-                  The objective is to encourage people to understand
-                  their heart health and consult healthcare
-                  professionals when needed.
+                  Hrdaya Siddhi aims to spread awareness through community
+                  education, health information and organized screening
+                  initiatives across Bengaluru. The objective is to encourage
+                  people to understand their heart health and consult
+                  healthcare professionals when needed.
                 </p>
               </section>
             </div>
@@ -166,11 +168,10 @@ function AwarenessOrCctaPage({ mode }) {
             <section className="initiative-detail-intro">
               <h2>Understanding CCTA and CAC Tests</h2>
               <p>
-                Cardiac screening can help healthcare professionals
-                assess certain aspects of heart health. Two tests
-                that may be recommended in appropriate situations
-                are Coronary CT Angiography (CCTA) and Coronary
-                Artery Calcium (CAC) scoring.
+                Cardiac screening can help healthcare professionals assess
+                certain aspects of heart health. Two tests that may be
+                recommended in appropriate situations are Coronary CT
+                Angiography (CCTA) and Coronary Artery Calcium (CAC) scoring.
               </p>
             </section>
 
@@ -178,21 +179,20 @@ function AwarenessOrCctaPage({ mode }) {
               <section className="information-card">
                 <h2>What is CCTA?</h2>
                 <p>
-                  Coronary CT Angiography is a specialized CT scan
-                  that uses contrast material to create images of
-                  the coronary arteries. It helps doctors examine
-                  the arteries for narrowing or blockages.
+                  Coronary CT Angiography is a specialized CT scan that uses
+                  contrast material to create images of the coronary arteries.
+                  It helps doctors examine the arteries for narrowing or
+                  blockages.
                 </p>
               </section>
 
               <section className="information-card">
                 <h2>What is CAC Scoring?</h2>
                 <p>
-                  A Coronary Artery Calcium scan is a CT-based
-                  examination that measures calcium deposits in
-                  the coronary arteries. The result can help
-                  healthcare professionals assess cardiovascular
-                  risk.
+                  A Coronary Artery Calcium scan is a CT-based examination that
+                  measures calcium deposits in the coronary arteries. The
+                  result can help healthcare professionals assess
+                  cardiovascular risk.
                 </p>
               </section>
 
@@ -209,16 +209,15 @@ function AwarenessOrCctaPage({ mode }) {
               <section className="information-card">
                 <h2>Who Should Consider Screening?</h2>
                 <p>
-                  The need for CCTA or CAC testing depends on
-                  individual risk factors, symptoms and medical
-                  history. A qualified doctor should decide
-                  whether either test is appropriate.
+                  The need for CCTA or CAC testing depends on individual risk
+                  factors, symptoms and medical history. A qualified doctor
+                  should decide whether either test is appropriate.
                 </p>
 
                 <p className="medical-note">
-                  These tests are different and are not suitable
-                  for everyone. Consult a healthcare professional
-                  before choosing a screening test.
+                  These tests are different and are not suitable for everyone.
+                  Consult a healthcare professional before choosing a screening
+                  test.
                 </p>
               </section>
             </div>
@@ -229,8 +228,8 @@ function AwarenessOrCctaPage({ mode }) {
           <h2>Take the Next Step Towards Heart Health</h2>
 
           <p>
-            Be a part of the Hrdaya Siddhi initiative and learn
-            more about our community screening programmes.
+            Be a part of the Hrdaya Siddhi initiative and learn more about our
+            community screening programmes.
           </p>
 
           <button
@@ -243,9 +242,9 @@ function AwarenessOrCctaPage({ mode }) {
         </section>
 
         <p className="medical-disclaimer">
-          The information provided is for general awareness and
-          educational purposes only. It is not a substitute for
-          professional medical advice, diagnosis or treatment.
+          The information provided is for general awareness and educational
+          purposes only. It is not a substitute for professional medical
+          advice, diagnosis or treatment.
         </p>
       </main>
     </div>
@@ -318,9 +317,7 @@ function HrdayaSiddhiPage() {
         </div>
 
         <section className="detail-title-section">
-          <h2 className="district-title">
-            LIONS INTERNATIONAL DISTRICT 317F
-          </h2>
+          <h2 className="district-title">LIONS INTERNATIONAL DISTRICT 317F</h2>
 
           <h3 className="club-title">
             LIONS CLUB OF BANGALORE BRIGADE (LIONS BRIGADE)
@@ -328,29 +325,23 @@ function HrdayaSiddhiPage() {
 
           <h1>Hrdaya Siddhi</h1>
 
-          <p className="tagline">
-            Cleanse Your Heart • Early Detection Saves Lives
-          </p>
+          <p className="tagline">Cleanse Your Heart • Early Detection Saves Lives</p>
         </section>
 
         {/* 2nd ORDER: WHY HRDAYA SIDDHI (AWARENESS) */}
         <section className="initiative-summary why-hrdaya-section">
-          <div className="summary-label">
-            01 • WHY HRDAYA SIDDHI (AWARENESS)
-          </div>
+          <div className="summary-label">01 • WHY HRDAYA SIDDHI (AWARENESS)</div>
 
           <p>
-            Cardiovascular diseases claim roughly 17.9 to 20.5
-            million lives globally each year, with India accounting
-            for 20% of all heart attack deaths worldwide. 1 in 4
-            heart attacks occur without warning signs, but blockages
-            can be detected earlier through appropriate medical
-            screening. Spearheaded by Lions District 317F,
-            Lions Club of Bangalore Brigade, and LEO Club Asraya,
-            the Hrdaya Siddhi initiative is dedicated to promoting
-            community awareness, non-invasive risk assessment,
-            and organized early cardiac screening programmes
-            across Bengaluru.
+            Cardiovascular diseases claim roughly 17.9 to 20.5 million lives
+            globally each year, with India accounting for 20% of all heart
+            attack deaths worldwide. 1 in 4 heart attacks occur without warning
+            signs, but blockages can be detected earlier through appropriate
+            medical screening. Spearheaded by Lions District 317F, Lions Club of
+            Bangalore Brigade, and LEO Club Asraya, the Hrdaya Siddhi
+            initiative is dedicated to promoting community awareness,
+            non-invasive risk assessment, and organized early cardiac screening
+            programmes across Bengaluru.
           </p>
 
           <div className="section-action-row">
@@ -383,7 +374,8 @@ function HrdayaSiddhiPage() {
               <h3>CCTA (Coronary CT Angiography)</h3>
               <p>
                 Uses specialized CT imaging and contrast material to examine
-                coronary arteries for narrowing or blockages when advised by a doctor.
+                coronary arteries for narrowing or blockages when advised by a
+                doctor.
               </p>
               <button
                 type="button"
@@ -416,8 +408,8 @@ function HrdayaSiddhiPage() {
                 key={item.id}
                 title={item.title}
                 doctorNote={item.doctorNote}
-                videoSrc={item.videoSrc}
-                posterSrc={item.posterSrc}
+                embedUrl={item.embedUrl}
+                watchUrl={item.watchUrl}
               />
             ))}
           </div>
@@ -425,9 +417,7 @@ function HrdayaSiddhiPage() {
 
         {/* 4th ORDER: PARTNERS FOR HRDAYA SIDDHI */}
         <section className="partners-for-hrdaya-section">
-          <span className="partners-badge">
-            03 • PARTNERS FOR HRDAYA SIDDHI
-          </span>
+          <span className="partners-badge">03 • PARTNERS FOR HRDAYA SIDDHI</span>
           <h2>Organizing & Community Partners</h2>
           <p className="partners-subtitle">
             Working together across Bengaluru to support heart health education
@@ -476,10 +466,7 @@ function HomePage() {
     <div className="app">
       <nav className="navbar">
         <div className="logo">
-          <img
-            src="/iambangalorean.jpeg"
-            alt="I Am Bangalorean"
-          />
+          <img src="/iambangalorean.jpeg" alt="I Am Bangalorean" />
         </div>
 
         <div className="nav-links">
@@ -503,8 +490,8 @@ function HomePage() {
         <h2>Proud To Be One</h2>
 
         <p>
-          Discover Bengaluru's premier heart health initiative
-          dedicated to early cardiac screening and heart health awareness.
+          Discover Bengaluru's premier heart health initiative dedicated to early
+          cardiac screening and heart health awareness.
         </p>
 
         <button
@@ -517,10 +504,7 @@ function HomePage() {
       </section>
 
       <section className="bengaluru-banner">
-        <img
-          src="/bengaluru-skyline.jpeg"
-          alt="Namma Bengaluru skyline"
-        />
+        <img src="/bengaluru-skyline.jpeg" alt="Namma Bengaluru skyline" />
       </section>
 
       <main className="content" id="about">
@@ -542,21 +526,19 @@ function HomePage() {
         </div>
 
         <section className="hrdaya-box">
-          <span className="initiative-label">
-            HEALTH INITIATIVE
-          </span>
+          <span className="initiative-label">HEALTH INITIATIVE</span>
 
           <h2>Hrdaya Siddhi</h2>
 
           <p>
-            Hrdaya Siddhi is an initiative dedicated to heart attack
-            awareness, early detection and cardiac screening.
+            Hrdaya Siddhi is an initiative dedicated to heart attack awareness,
+            early detection and cardiac screening.
           </p>
 
           <p>
-            Spearheaded by Lions District 317F and Lions Club of
-            Bangalore Brigade, this initiative promotes awareness
-            and preventive heart care across Bengaluru.
+            Spearheaded by Lions District 317F and Lions Club of Bangalore
+            Brigade, this initiative promotes awareness and preventive heart care
+            across Bengaluru.
           </p>
 
           <button
@@ -573,14 +555,10 @@ function HomePage() {
         <div className="story-header">
           <div>
             <h2>Our Stories</h2>
-            <p>
-              Discover stories and initiatives from Bengaluru.
-            </p>
+            <p>Discover stories and initiatives from Bengaluru.</p>
           </div>
 
-          <a href="#contact">
-            Explore More →
-          </a>
+          <a href="#contact">Explore More →</a>
         </div>
 
         <div className="story-grid">
@@ -604,7 +582,8 @@ function HomePage() {
             <h3>Building a Healthier Community</h3>
 
             <p>
-              Encouraging people to take small steps towards a healthier lifestyle.
+              Encouraging people to take small steps towards a healthier
+              lifestyle.
             </p>
           </div>
 
@@ -627,14 +606,11 @@ function HomePage() {
           <h3>Stay Connected With Us</h3>
 
           <p>
-            Subscribe to receive updates about our initiatives
-            and community activities.
+            Subscribe to receive updates about our initiatives and community
+            activities.
           </p>
 
-          <form
-            className="subscribe-form"
-            onSubmit={handleSubscribe}
-          >
+          <form className="subscribe-form" onSubmit={handleSubscribe}>
             <input
               type="email"
               placeholder="Enter your email address"
@@ -643,15 +619,11 @@ function HomePage() {
               required
             />
 
-            <button type="submit">
-              Subscribe
-            </button>
+            <button type="submit">Subscribe</button>
           </form>
 
           {subscribed && (
-            <p className="success-message">
-              Thank you for subscribing!
-            </p>
+            <p className="success-message">Thank you for subscribing!</p>
           )}
         </div>
       </footer>
