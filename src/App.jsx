@@ -3,6 +3,59 @@ import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from "re
 import Registration from "./Registration";
 import "./App.css";
 
+const TEST_VIDEOS = [
+  {
+    id: "ccta",
+    title: "CCTA (Coronary CT Angiography) — Doctor Overview",
+    doctorNote: "How non-invasive coronary CT imaging checks for artery narrowing.",
+    videoSrc: "/videos/ccta-doctor.mp4",
+    posterSrc: "/hrdaya-siddhi.jpeg",
+  },
+  {
+    id: "cac",
+    title: "CAC Scoring (Calcium Scan) — Doctor Overview",
+    doctorNote: "What coronary calcium scoring measures and when doctors recommend it.",
+    videoSrc: "/videos/cac-doctor.mp4",
+    posterSrc: "/hrdaya-siddhi.jpeg",
+  },
+];
+
+function DoctorTestVideoCard({ title, doctorNote, videoSrc, posterSrc }) {
+  const [magnified, setMagnified] = useState(false);
+
+  return (
+    <div className="solution-video-card">
+      <div className="solution-video-header">
+        <div>
+          <h3>{title}</h3>
+          <p>{doctorNote}</p>
+        </div>
+
+        <button
+          type="button"
+          className="magnify-toggle-btn"
+          onClick={() => setMagnified((prev) => !prev)}
+        >
+          {magnified ? "Reset View (1x)" : "Magnify View (1.4x)"}
+        </button>
+      </div>
+
+      <div className={`video-frame ${magnified ? "is-magnified" : ""}`}>
+        <video
+          controls
+          preload="metadata"
+          playsInline
+          poster={posterSrc}
+          className="inline-test-video"
+        >
+          <source src={videoSrc} type="video/mp4" />
+          Your browser does not support inline video playback.
+        </video>
+      </div>
+    </div>
+  );
+}
+
 function AwarenessOrCctaPage({ mode }) {
   const navigate = useNavigate();
   const isAwareness = mode === "awareness";
@@ -227,6 +280,7 @@ function HrdayaSiddhiPage() {
       </header>
 
       <main className="detail-main">
+        {/* 1st ORDER: LOGOS & REGISTER BUTTON */}
         <div className="top-branding-strip">
           <div className="header-branding">
             <div className="partner-logos">
@@ -279,9 +333,10 @@ function HrdayaSiddhiPage() {
           </p>
         </section>
 
-        <section className="initiative-summary">
+        {/* 2nd ORDER: WHY HRDAYA SIDDHI (AWARENESS) */}
+        <section className="initiative-summary why-hrdaya-section">
           <div className="summary-label">
-            INITIATIVE SUMMARY
+            01 • WHY HRDAYA SIDDHI (AWARENESS)
           </div>
 
           <p>
@@ -297,66 +352,107 @@ function HrdayaSiddhiPage() {
             and organized early cardiac screening programmes
             across Bengaluru.
           </p>
+
+          <div className="section-action-row">
+            <button
+              type="button"
+              className="secondary-detail-btn"
+              onClick={() => navigate("/hrdayasiddhi/awareness")}
+            >
+              Read Full Heart Health Awareness Guide →
+            </button>
+          </div>
         </section>
 
-        <section className="initiative-cards">
-          <button
-            type="button"
-            className="initiative-card awareness-card"
-            onClick={() => navigate("/hrdayasiddhi/awareness")}
-          >
-            <span className="card-number">01</span>
-
-            <h2>AWARENESS →</h2>
-
-            <p>
-              Understand heart attack risks, warning signs,
-              and preventive heart care.
-            </p>
-
-            <span className="card-read-more">
-              Click to know more →
+        {/* 3rd ORDER: SOLUTION (ABOUT THE TESTS + PLAYABLE DOCTOR VIDEOS + MAGNIFICATION) */}
+        <section className="solution-tests-section">
+          <div className="solution-header-block">
+            <span className="solution-badge">
+              02 • THE SOLUTION: CARDIAC SCREENING TESTS
             </span>
-          </button>
-
-          <button
-            type="button"
-            className="initiative-card ccta-card"
-            onClick={() => navigate("/hrdayasiddhi/ccta")}
-          >
-            <span className="card-number">02</span>
-
-            <h2>CCTA / CAC TESTS →</h2>
-
+            <h2>Understanding the Screening Tests</h2>
             <p>
-              Learn about cardiac CT scans and their role
-              in heart health assessment.
+              Watch doctors explain how non-invasive cardiac evaluations work,
+              and use <strong>Magnify View</strong> right inside the player to
+              zoom into visuals and test details.
             </p>
+          </div>
 
-            <span className="card-read-more">
-              Click to know more →
-            </span>
-          </button>
+          <div className="solution-cards-row">
+            <div className="solution-test-card">
+              <h3>CCTA (Coronary CT Angiography)</h3>
+              <p>
+                Uses specialized CT imaging and contrast material to examine
+                coronary arteries for narrowing or blockages when advised by a doctor.
+              </p>
+              <button
+                type="button"
+                className="inline-link-btn"
+                onClick={() => navigate("/hrdayasiddhi/ccta")}
+              >
+                Explore CCTA / CAC Details →
+              </button>
+            </div>
 
-          <a
-            href="#register"
-            className="initiative-card registration-card"
-          >
-            <span className="card-number">03</span>
+            <div className="solution-test-card">
+              <h3>CAC Scoring (Calcium Scan)</h3>
+              <p>
+                A non-invasive CT scan that measures calcified plaque in the
+                coronary arteries to support cardiovascular risk evaluation.
+              </p>
+              <button
+                type="button"
+                className="inline-link-btn"
+                onClick={() => navigate("/hrdayasiddhi/ccta")}
+              >
+                Explore CCTA / CAC Details →
+              </button>
+            </div>
+          </div>
 
-            <h2>REGISTRATION ↗</h2>
-
-            <p>
-              Click to open the camp sign-up form and
-              register for screening programmes.
-            </p>
-
-            <span className="card-read-more">
-              Register here →
-            </span>
-          </a>
+          <div className="doctor-videos-grid">
+            {TEST_VIDEOS.map((item) => (
+              <DoctorTestVideoCard
+                key={item.id}
+                title={item.title}
+                doctorNote={item.doctorNote}
+                videoSrc={item.videoSrc}
+                posterSrc={item.posterSrc}
+              />
+            ))}
+          </div>
         </section>
 
+        {/* 4th ORDER: PARTNERS FOR HRDAYA SIDDHI */}
+        <section className="partners-for-hrdaya-section">
+          <span className="partners-badge">
+            03 • PARTNERS FOR HRDAYA SIDDHI
+          </span>
+          <h2>Organizing & Community Partners</h2>
+          <p className="partners-subtitle">
+            Working together across Bengaluru to support heart health education
+            and screening initiatives.
+          </p>
+
+          <div className="partners-grid">
+            <div className="partner-info-card">
+              <h3>Lions International District 317F</h3>
+              <p>Leading district-wide service and community health outreach.</p>
+            </div>
+
+            <div className="partner-info-card">
+              <h3>Lions Club of Bangalore Brigade</h3>
+              <p>Spearheading the Hrdaya Siddhi initiative in Bengaluru.</p>
+            </div>
+
+            <div className="partner-info-card">
+              <h3>LEO Club Asraya</h3>
+              <p>Mobilizing youth volunteers and community awareness drives.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* 5th ORDER: REGISTRATION FORM */}
         <section id="register" className="initiative-register-section">
           <Registration />
         </section>
