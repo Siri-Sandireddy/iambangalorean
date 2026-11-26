@@ -241,6 +241,12 @@ function HrdayaSiddhiPage() {
               className="hrdaya-logo"
             />
           </div>
+
+          <div className="header-right-action">
+            <a href="#register" className="header-register-btn">
+              Register Now →
+            </a>
+          </div>
         </div>
 
         <section className="detail-title-section">

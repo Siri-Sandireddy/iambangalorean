@@ -478,7 +478,7 @@ img {
   padding: 48px 0 32px;
 }
 
-/* HEADER BRANDING: PARTNERS LEFT, MAIN EVENT CENTER */
+/* HEADER BRANDING: PARTNERS LEFT, MAIN EVENT CENTER, REGISTER RIGHT */
 
 .header-branding {
   display: grid;
@@ -493,18 +493,18 @@ img {
 .partner-logos {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 22px;
   justify-self: start;
 }
 
 .partner-logo {
-  height: 48px;
+  height: 58px;
   width: auto;
   object-fit: contain;
 }
 
 .partner-logo.district-logo {
-  height: 64px;
+  height: 72px;
 }
 
 .main-event-logo {
@@ -512,10 +512,33 @@ img {
 }
 
 .hrdaya-logo {
-  height: 90px;
+  height: 132px;
   width: auto;
   object-fit: contain;
+  border-radius: 10px;
+}
+
+.header-right-action {
+  justify-self: end;
+}
+
+.header-register-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #079b4b;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
   border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(7, 155, 75, 0.16);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.header-register-btn:hover {
+  background: #087c3e;
+  transform: translateY(-1px);
 }
 
 /* DETAIL PAGE TITLES */
@@ -708,7 +731,7 @@ img {
 
   .header-branding {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 18px;
     padding: 12px 16px;
     margin-bottom: 30px;
     justify-items: center;
@@ -722,15 +745,19 @@ img {
   }
 
   .partner-logo {
-    height: 42px;
+    height: 48px;
   }
 
   .partner-logo.district-logo {
-    height: 54px;
+    height: 60px;
   }
 
   .hrdaya-logo {
-    height: 76px;
+    height: 104px;
+  }
+
+  .header-right-action {
+    justify-self: center;
   }
 }
 
@@ -816,7 +843,7 @@ img {
 
   .header-branding {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 16px;
     padding: 8px 0;
     margin-bottom: 24px;
     justify-items: center;
@@ -828,15 +855,24 @@ img {
   }
 
   .partner-logo {
-    height: 36px;
+    height: 42px;
   }
 
   .partner-logo.district-logo {
-    height: 46px;
+    height: 52px;
   }
 
   .hrdaya-logo {
-    height: 68px;
+    height: 92px;
+  }
+
+  .header-right-action {
+    justify-self: center;
+  }
+
+  .header-register-btn {
+    padding: 9px 16px;
+    font-size: 13px;
   }
 
   .district-title {
