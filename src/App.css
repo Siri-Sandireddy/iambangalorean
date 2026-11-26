@@ -475,25 +475,30 @@ img {
 .detail-main {
   width: min(100% - 48px, 1268px);
   margin: 0 auto;
-  padding: 48px 0 32px;
+  padding: 18px 0 32px;
 }
 
-/* HEADER BRANDING: PARTNERS LEFT, MAIN EVENT CENTER, REGISTER RIGHT */
+/* TOP BRANDING STRIP & HEADER BRANDING: PARTNERS LEFT, MAIN EVENT CENTER, REGISTER RIGHT */
+
+.top-branding-strip {
+  width: 100%;
+  margin-bottom: 14px;
+}
 
 .header-branding {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   width: 100%;
-  margin: 0 auto 38px;
-  padding: 16px 24px;
+  margin: 0 auto;
+  padding: 6px 12px;
   box-sizing: border-box;
 }
 
 .partner-logos {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 16px;
   justify-self: start;
 }
 
@@ -544,7 +549,7 @@ img {
 /* DETAIL PAGE TITLES */
 
 .detail-title-section {
-  margin-bottom: 58px;
+  margin-bottom: 36px;
   text-align: center;
 }
 
@@ -729,16 +734,19 @@ img {
     font-size: 18px;
   }
 
+  .top-branding-strip {
+    margin-bottom: 16px;
+  }
+
   .header-branding {
     grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 12px 16px;
-    margin-bottom: 30px;
+    gap: 14px;
+    padding: 6px 8px;
     justify-items: center;
   }
 
   .partner-logos {
-    gap: 18px;
+    gap: 14px;
     justify-self: center;
     flex-wrap: wrap;
     justify-content: center;
@@ -838,19 +846,22 @@ img {
 
   .detail-main {
     width: calc(100% - 30px);
-    padding-top: 30px;
+    padding-top: 12px;
+  }
+
+  .top-branding-strip {
+    margin-bottom: 14px;
   }
 
   .header-branding {
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 8px 0;
-    margin-bottom: 24px;
+    gap: 12px;
+    padding: 4px 0;
     justify-items: center;
   }
 
   .partner-logos {
-    gap: 14px;
+    gap: 12px;
     justify-self: center;
   }
 

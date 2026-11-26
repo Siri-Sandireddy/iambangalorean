@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 import Registration from "./Registration";
 import "./App.css";
 
@@ -17,6 +17,7 @@ function AwarenessOrCctaPage({ mode }) {
         />
 
         <button
+          type="button"
           className="back-home-btn"
           onClick={() => navigate("/hrdayasiddhi")}
         >
@@ -180,6 +181,7 @@ function AwarenessOrCctaPage({ mode }) {
           </p>
 
           <button
+            type="button"
             className="initiative-register-btn"
             onClick={() => navigate("/hrdayasiddhi#register")}
           >
@@ -199,6 +201,16 @@ function AwarenessOrCctaPage({ mode }) {
 
 function HrdayaSiddhiPage() {
   const navigate = useNavigate();
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash === "#register") {
+      const el = document.getElementById("register");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
 
   return (
     <div className="hrdaya-page">
@@ -215,37 +227,39 @@ function HrdayaSiddhiPage() {
       </header>
 
       <main className="detail-main">
-        <div className="header-branding">
-          <div className="partner-logos">
-            <img
-              src="/lions-logo.png"
-              alt="Lions Club"
-              className="partner-logo"
-            />
-            <img
-              src="/district-logo.png"
-              alt="Lions District 317F"
-              className="partner-logo district-logo"
-            />
-            <img
-              src="/leologo.png"
-              alt="LEO Club"
-              className="partner-logo"
-            />
-          </div>
+        <div className="top-branding-strip">
+          <div className="header-branding">
+            <div className="partner-logos">
+              <img
+                src="/lions-logo.png"
+                alt="Lions Club"
+                className="partner-logo"
+              />
+              <img
+                src="/district-logo.png"
+                alt="Lions District 317F"
+                className="partner-logo district-logo"
+              />
+              <img
+                src="/leologo.png"
+                alt="LEO Club"
+                className="partner-logo"
+              />
+            </div>
 
-          <div className="main-event-logo">
-            <img
-              src="/hrdaya-siddhi.jpeg"
-              alt="Hrdaya Siddhi"
-              className="hrdaya-logo"
-            />
-          </div>
+            <div className="main-event-logo">
+              <img
+                src="/hrdaya-siddhi.jpeg"
+                alt="Hrdaya Siddhi"
+                className="hrdaya-logo"
+              />
+            </div>
 
-          <div className="header-right-action">
-            <a href="#register" className="header-register-btn">
-              Register Now →
-            </a>
+            <div className="header-right-action">
+              <a href="#register" className="header-register-btn">
+                Register Now →
+              </a>
+            </div>
           </div>
         </div>
 
@@ -287,6 +301,7 @@ function HrdayaSiddhiPage() {
 
         <section className="initiative-cards">
           <button
+            type="button"
             className="initiative-card awareness-card"
             onClick={() => navigate("/hrdayasiddhi/awareness")}
           >
@@ -305,6 +320,7 @@ function HrdayaSiddhiPage() {
           </button>
 
           <button
+            type="button"
             className="initiative-card ccta-card"
             onClick={() => navigate("/hrdayasiddhi/ccta")}
           >
@@ -396,6 +412,7 @@ function HomePage() {
         </p>
 
         <button
+          type="button"
           className="hero-btn"
           onClick={() => navigate("/hrdayasiddhi")}
         >
@@ -413,6 +430,7 @@ function HomePage() {
       <main className="content" id="about">
         <div className="floating-card">
           <button
+            type="button"
             className="floating-logo-button"
             onClick={() => navigate("/hrdayasiddhi")}
             aria-label="Explore Hrdaya Siddhi"
@@ -446,6 +464,7 @@ function HomePage() {
           </p>
 
           <button
+            type="button"
             className="learn-btn"
             onClick={() => navigate("/hrdayasiddhi")}
           >
