@@ -428,6 +428,7 @@ img {
   min-height: 100vh;
   background: #f6f9fc;
   color: #26364b;
+  overflow-x: hidden;
 }
 
 .detail-header {
@@ -462,6 +463,13 @@ img {
   background: #f1f6fa;
 }
 
+.detail-main,
+.detail-main *,
+.detail-main *::before,
+.detail-main *::after {
+  box-sizing: border-box;
+}
+
 .detail-main {
   width: min(100% - 48px, 1268px);
   margin: 0 auto;
@@ -482,7 +490,6 @@ img {
   width: 100%;
   margin: 0 auto;
   padding: 6px 12px;
-  box-sizing: border-box;
 }
 
 .partner-logos {
@@ -929,7 +936,7 @@ img {
   text-decoration: underline;
 }
 
-/* 4th ORDER: PARTNERS FOR HRDAYA SIDDHI */
+/* 4th ORDER: HOSPITAL & DIAGNOSTIC PARTNERS FOR HRDAYA SIDDHI */
 
 .partners-for-hrdaya-section {
   width: 100%;
@@ -960,37 +967,95 @@ img {
 }
 
 .partners-subtitle {
-  margin: 0 auto 24px;
-  max-width: 680px;
+  margin: 0 auto 28px;
+  max-width: 700px;
   color: #65758a;
   font-size: 16px;
+  line-height: 1.6;
 }
 
-.partners-grid {
+.hospital-partners-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
   text-align: left;
 }
 
-.partner-info-card {
-  padding: 22px;
+.hospital-partner-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
   background: #f8fbfd;
   border: 1px solid #e0e7ef;
-  border-radius: 14px;
+  border-radius: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.partner-info-card h3 {
+.hospital-partner-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(38, 54, 75, 0.06);
+  border-color: #cbd8e6;
+}
+
+.hospital-partner-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.hospital-partner-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: #fff4e5;
+  color: #c86400;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.hospital-partner-index {
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hospital-partner-card h3 {
   margin: 0 0 8px;
   color: #26364b;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-.partner-info-card p {
-  margin: 0;
+.hospital-partner-card p {
+  margin: 0 0 18px;
   color: #526780;
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+.hospital-partner-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #dce5ee;
+  color: #079b4b;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.hospital-partner-link:hover {
+  background: #dcfce8;
+  border-color: #079b4b;
 }
 
 /* =========================================
@@ -1014,11 +1079,8 @@ img {
   }
 
   .solution-cards-row,
-  .doctor-videos-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .partners-grid {
+  .doctor-videos-grid,
+  .hospital-partners-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1203,6 +1265,10 @@ img {
   .solution-tests-section,
   .partners-for-hrdaya-section {
     padding: 24px 18px;
+  }
+
+  .hospital-partner-card {
+    padding: 18px;
   }
 
   .initiative-summary p {

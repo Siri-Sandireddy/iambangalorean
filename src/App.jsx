@@ -22,6 +22,45 @@ const TEST_VIDEOS = [
   },
 ];
 
+const HOSPITAL_PARTNERS = [
+  {
+    id: "tenet-diagnostics",
+    badge: "DIAGNOSTICS & IMAGING",
+    name: "Tenet Diagnostics",
+    description:
+      "Pathology and diagnostic imaging partner offering radiology and laboratory services.",
+    url: "https://www.tenetdiagnostics.com/",
+    displayUrl: "tenetdiagnostics.com",
+  },
+  {
+    id: "kanva-diagnostic",
+    badge: "DIAGNOSTIC SERVICES",
+    name: "Kanva Diagnostic",
+    description:
+      "Diagnostic and imaging care provider supporting health check-ups and scans in Bengaluru.",
+    url: "https://kanvadiagnostic.com/",
+    displayUrl: "kanvadiagnostic.com",
+  },
+  {
+    id: "narayana-health",
+    badge: "CARDIAC & MULTISPECIALITY",
+    name: "Narayana Health",
+    description:
+      "Multispeciality healthcare network known for cardiac care and clinical excellence.",
+    url: "https://www.narayanahealth.org/",
+    displayUrl: "narayanahealth.org",
+  },
+  {
+    id: "bangalore-hospitals",
+    badge: "BENGALURU HOSPITAL CARE",
+    name: "Bangalore Hospitals",
+    description:
+      "Bengaluru hospital partner providing specialist consultations, diagnostics, and patient care.",
+    url: "https://bangalorehospitals.in/",
+    displayUrl: "bangalorehospitals.in",
+  },
+];
+
 function DoctorTestVideoCard({ title, doctorNote, embedUrl, watchUrl }) {
   const [magnified, setMagnified] = useState(false);
 
@@ -343,7 +382,7 @@ function HrdayaSiddhiPage() {
             attack deaths worldwide. 1 in 4 heart attacks occur without warning
             signs, but blockages can be detected earlier through appropriate
             medical screening. Spearheaded by Lions District 317F, Lions Club of
-            Bangalore Brigade, and LEO Club , the Hrdaya Siddhi
+            Bangalore Brigade, and LEO Club, the Hrdaya Siddhi
             initiative is dedicated to promoting community awareness,
             non-invasive risk assessment, and organized early cardiac screening
             programmes across Bengaluru.
@@ -516,30 +555,37 @@ function HrdayaSiddhiPage() {
           </div>
         </section>
 
-        {/* 4th ORDER: PARTNERS FOR HRDAYA SIDDHI */}
+        {/* 4th ORDER: HOSPITAL & DIAGNOSTIC PARTNERS FOR HRDAYA SIDDHI */}
         <section className="partners-for-hrdaya-section">
           <span className="partners-badge">03 • PARTNERS FOR HRDAYA SIDDHI</span>
-          <h2>Organizing & Community Partners</h2>
+          <h2>Healthcare &amp; Diagnostic Partners</h2>
           <p className="partners-subtitle">
-            Working together across Bengaluru to support heart health education
-            and screening initiatives.
+            Trusted hospitals and diagnostic centres supporting cardiac screening
+            and patient care across Bengaluru.
           </p>
 
-          <div className="partners-grid">
-            <div className="partner-info-card">
-              <h3>Lions International District 317F</h3>
-              <p>Leading district-wide service and community health outreach.</p>
-            </div>
+          <div className="hospital-partners-grid">
+            {HOSPITAL_PARTNERS.map((partner, index) => (
+              <div className="hospital-partner-card" key={partner.id}>
+                <div className="hospital-partner-top">
+                  <span className="hospital-partner-tag">{partner.badge}</span>
+                  <span className="hospital-partner-index">0{index + 1}</span>
+                </div>
 
-            <div className="partner-info-card">
-              <h3>Lions Club of Bangalore Brigade</h3>
-              <p>Spearheading the Hrdaya Siddhi initiative in Bengaluru.</p>
-            </div>
+                <h3>{partner.name}</h3>
+                <p>{partner.description}</p>
 
-            <div className="partner-info-card">
-              <h3>LEO Club Asraya</h3>
-              <p>Mobilizing youth volunteers and community awareness drives.</p>
-            </div>
+                <a
+                  href={partner.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hospital-partner-link"
+                >
+                  <span>Visit {partner.displayUrl}</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            ))}
           </div>
         </section>
 
