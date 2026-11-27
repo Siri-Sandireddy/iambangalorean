@@ -622,6 +622,56 @@ img {
   color: #ffffff;
 }
 
+.inline-awareness-magnified {
+  margin-top: 24px;
+  padding: 26px 28px;
+  background: #fff5f5;
+  border: 1.5px solid #ed2525;
+  border-radius: 16px;
+  text-align: left;
+  box-shadow: 0 10px 26px rgba(237, 37, 37, 0.08);
+  animation: fadeMagnifyIn 0.22s ease;
+}
+
+.inline-awareness-magnified h3 {
+  margin: 0 0 16px;
+  color: #c81e1e;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.inline-awareness-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.inline-awareness-box {
+  background: #ffffff;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.inline-awareness-box h4 {
+  margin: 0 0 10px;
+  color: #26364b;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.inline-awareness-box ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #30465f;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.inline-awareness-box li {
+  margin-bottom: 6px;
+}
+
 /* 3rd ORDER: SOLUTION (TESTS + PLAYABLE DOCTOR VIDEOS + MAGNIFICATION) */
 
 .solution-tests-section {
@@ -701,6 +751,88 @@ img {
 
 .inline-link-btn:hover {
   text-decoration: underline;
+}
+
+.inline-test-magnified {
+  margin-bottom: 26px;
+  padding: 24px 26px;
+  background: #f0fdf4;
+  border: 1.5px solid #00a64f;
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(0, 166, 79, 0.08);
+  animation: fadeMagnifyIn 0.22s ease;
+}
+
+.inline-test-magnified-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.inline-test-magnified-header h3 {
+  margin: 0;
+  color: #079b4b;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.inline-close-btn {
+  padding: 6px 12px;
+  border: 1px solid #079b4b;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #079b4b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.inline-close-btn:hover {
+  background: #dcfce8;
+}
+
+.inline-test-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.inline-test-box {
+  background: #ffffff;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.inline-test-box h4 {
+  margin: 0 0 10px;
+  color: #26364b;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.inline-test-box ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #30465f;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.inline-test-box li {
+  margin-bottom: 6px;
+}
+
+@keyframes fadeMagnifyIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .doctor-videos-grid {
@@ -1309,5 +1441,16 @@ img {
 
   .initiative-register-section h2 {
     font-size: 23px;
+  }
+
+  .inline-awareness-magnified,
+  .inline-test-magnified {
+    padding: 18px 16px;
+  }
+
+  .inline-awareness-grid,
+  .inline-test-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 }

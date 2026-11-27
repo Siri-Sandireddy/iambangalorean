@@ -252,9 +252,9 @@ function AwarenessOrCctaPage({ mode }) {
 }
 
 function HrdayaSiddhiPage() {
-  const navigate = useNavigate();
   const { hash } = useLocation();
   const [awarenessExpanded, setAwarenessExpanded] = useState(false);
+  const [activeTestDetail, setActiveTestDetail] = useState(null);
 
   useEffect(() => {
     if (hash === "#register") {
@@ -264,6 +264,10 @@ function HrdayaSiddhiPage() {
       }
     }
   }, [hash]);
+
+  const toggleTestDetail = (testKey) => {
+    setActiveTestDetail((prev) => (prev === testKey ? null : testKey));
+  };
 
   return (
     <div className="hrdaya-page">
@@ -339,7 +343,7 @@ function HrdayaSiddhiPage() {
             attack deaths worldwide. 1 in 4 heart attacks occur without warning
             signs, but blockages can be detected earlier through appropriate
             medical screening. Spearheaded by Lions District 317F, Lions Club of
-            Bangalore Brigade, and LEO Club Asraya, the Hrdaya Siddhi
+            Bangalore Brigade, and LEO Club , the Hrdaya Siddhi
             initiative is dedicated to promoting community awareness,
             non-invasive risk assessment, and organized early cardiac screening
             programmes across Bengaluru.
@@ -412,9 +416,11 @@ function HrdayaSiddhiPage() {
               <button
                 type="button"
                 className="inline-link-btn"
-                onClick={() => navigate("/hrdayasiddhi/ccta")}
+                onClick={() => toggleTestDetail("ccta")}
               >
-                Explore CCTA / CAC Details →
+                {activeTestDetail === "ccta"
+                  ? "Hide CCTA Details ↑"
+                  : "Explore CCTA / CAC Details →"}
               </button>
             </div>
 
@@ -427,12 +433,75 @@ function HrdayaSiddhiPage() {
               <button
                 type="button"
                 className="inline-link-btn"
-                onClick={() => navigate("/hrdayasiddhi/ccta")}
+                onClick={() => toggleTestDetail("cac")}
               >
-                Explore CCTA / CAC Details →
+                {activeTestDetail === "cac"
+                  ? "Hide CAC Details ↑"
+                  : "Explore CCTA / CAC Details →"}
               </button>
             </div>
           </div>
+
+          {activeTestDetail && (
+            <div className="inline-test-magnified">
+              <div className="inline-test-magnified-header">
+                <h3>
+                  {activeTestDetail === "ccta"
+                    ? "CCTA (Coronary CT Angiography) — Magnified Details"
+                    : "CAC Scoring (Calcium Scan) — Magnified Details"}
+                </h3>
+                <button
+                  type="button"
+                  className="inline-close-btn"
+                  onClick={() => setActiveTestDetail(null)}
+                >
+                  Close ✕
+                </button>
+              </div>
+
+              {activeTestDetail === "ccta" ? (
+                <div className="inline-test-grid">
+                  <div className="inline-test-box">
+                    <h4>How CCTA Works</h4>
+                    <ul>
+                      <li>Specialized CT scan using contrast material to image coronary arteries.</li>
+                      <li>Helps doctors check for narrowing or potential blockages.</li>
+                      <li>Supports clearer medical evaluation when symptoms or risk warrant it.</li>
+                    </ul>
+                  </div>
+
+                  <div className="inline-test-box">
+                    <h4>When to Consider &amp; Medical Guidance</h4>
+                    <ul>
+                      <li>Suitability depends on symptoms, medical history, and risk factors.</li>
+                      <li>Not every test fits every individual—a doctor must advise first.</li>
+                      <li>Discuss contrast safety and allergies with your healthcare team.</li>
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <div className="inline-test-grid">
+                  <div className="inline-test-box">
+                    <h4>How CAC Scoring Works</h4>
+                    <ul>
+                      <li>Non-invasive CT scan measuring calcified plaque in coronary arteries.</li>
+                      <li>Helps healthcare professionals assess long-term cardiovascular risk.</li>
+                      <li>Provides additional data to guide preventive care discussions.</li>
+                    </ul>
+                  </div>
+
+                  <div className="inline-test-box">
+                    <h4>When to Consider &amp; Medical Guidance</h4>
+                    <ul>
+                      <li>Recommended based on individual risk profile and doctor evaluation.</li>
+                      <li>Different from CCTA and not automatically suitable for everyone.</li>
+                      <li>Consult a qualified doctor to decide if screening is right for you.</li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="doctor-videos-grid">
             {TEST_VIDEOS.map((item) => (
