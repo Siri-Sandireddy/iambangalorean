@@ -382,7 +382,7 @@ function HrdayaSiddhiPage() {
             attack deaths worldwide. 1 in 4 heart attacks occur without warning
             signs, but blockages can be detected earlier through appropriate
             medical screening. Spearheaded by Lions District 317F, Lions Club of
-            Bangalore Brigade, and LEO Club, the Hrdaya Siddhi
+            Bangalore Brigade, and LEO Club Asraya, the Hrdaya Siddhi
             initiative is dedicated to promoting community awareness,
             non-invasive risk assessment, and organized early cardiac screening
             programmes across Bengaluru.
