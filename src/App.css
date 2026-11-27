@@ -495,7 +495,7 @@ img {
 .partner-logos {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 34px;
   justify-self: start;
 }
 
@@ -507,7 +507,7 @@ img {
 
 .partner-logo.district-logo {
   height: 64px;
-  transform: scale(1.42);
+  transform: scale(1.85);
   transform-origin: center;
 }
 
@@ -1100,7 +1100,7 @@ img {
   }
 
   .partner-logos {
-    gap: 14px;
+    gap: 28px;
     justify-self: center;
     flex-wrap: wrap;
     justify-content: center;
@@ -1112,7 +1112,7 @@ img {
 
   .partner-logo.district-logo {
     height: 54px;
-    transform: scale(1.38);
+    transform: scale(1.75);
   }
 
   .hrdaya-logo {
@@ -1215,7 +1215,7 @@ img {
   }
 
   .partner-logos {
-    gap: 12px;
+    gap: 24px;
     justify-self: center;
   }
 
@@ -1225,7 +1225,7 @@ img {
 
   .partner-logo.district-logo {
     height: 46px;
-    transform: scale(1.35);
+    transform: scale(1.7);
   }
 
   .hrdaya-logo {
