@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const HOSPITAL_LOCATIONS = {
-  'Tenet Diagnostics': ['Jayanagar', 'Sadashivya'],
-  'Narayana Hospital': ['Banashakari'],
-  'Canva Diagnostics': ['Rajajinagar', 'Nagarbhavi', 'Kormangala'],
+  "Tenet Diagnostics": ["Jayanagar", "Sadashivya"],
+  "Narayana Hospital": ["Banashakari"],
+  "Canva Diagnostics": ["Rajajinagar", "Nagarbhavi", "Kormangala"],
 };
 
-const ALLOWED_TESTS = ['CAC', 'CCTA'];
+const ALLOWED_TESTS = ["CAC", "CCTA"];
 const ALLOWED_REFERRALS = [
-  'Social Media',
-  'WhatsApp',
-  'Friends & Family',
-  'Hospital Poster / Pamphlet',
+  "Social Media",
+  "WhatsApp",
+  "Friends & Family",
+  "Hospital Poster / Pamphlet",
 ];
 
 const INITIAL_FORM = {
-  name: '',
-  age: '',
-  phone: '',
-  email: '',
-  test: '',
-  hospital: '',
-  location: '',
-  referred_by: '',
-  referred_by_other: '',
+  name: "",
+  age: "",
+  phone: "",
+  email: "",
+  test: "",
+  hospital: "",
+  location: "",
+  referred_by: "",
+  referred_by_other: "",
   terms_accepted: false,
 };
 
@@ -37,69 +37,69 @@ export default function Registration({ onBack }) {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if (name === 'hospital') {
+    if (name === "hospital") {
       setFormData((prev) => ({
         ...prev,
         hospital: value,
-        location: '',
+        location: "",
       }));
       return;
     }
 
-    if (name === 'referred_by') {
+    if (name === "referred_by") {
       setFormData((prev) => ({
         ...prev,
         referred_by: value,
-        referred_by_other: value === 'Other' ? prev.referred_by_other : '',
+        referred_by_other: value === "Other" ? prev.referred_by_other : "",
       }));
       return;
     }
 
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
   const validateForm = () => {
     if (!formData.terms_accepted) {
-      return 'Error: You must accept the terms and conditions to register.';
+      return "Error: You must accept the terms and conditions to register.";
     }
     if (!/^[A-Za-z\s]{2,100}$/.test(formData.name.trim())) {
-      return 'Error: Invalid name. Use only letters and spaces (2–100 characters).';
+      return "Error: Invalid name. Use only letters and spaces (2-100 characters).";
     }
     const ageNum = Number(formData.age.trim());
     if (!Number.isInteger(ageNum) || ageNum < 1 || ageNum > 120) {
-      return 'Error: Age must be a valid number between 1 and 120.';
+      return "Error: Age must be a valid number between 1 and 120.";
     }
     const phoneTrimmed = formData.phone.trim();
-    const digitsOnly = phoneTrimmed.replace(/\D/g, '');
+    const digitsOnly = phoneTrimmed.replace(/\D/g, "");
     if (
       !/^\+?[\d\s\-()]{7,20}$/.test(phoneTrimmed) ||
       digitsOnly.length < 7 ||
       digitsOnly.length > 15
     ) {
-      return 'Error: Phone number must contain between 7 and 15 digits.';
+      return "Error: Phone number must contain between 7 and 15 digits.";
     }
     if (
       !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]{2,}$/.test(
         formData.email.trim()
       )
     ) {
-      return 'Error: Please enter a valid email address with a proper domain (e.g., user@example.com).';
+      return "Error: Please enter a valid email address with a proper domain (e.g., user@example.com).";
     }
     if (!ALLOWED_TESTS.includes(formData.test)) {
-      return 'Error: Invalid test selection.';
+      return "Error: Invalid test selection.";
     }
     if (!locationOptions.includes(formData.location)) {
-      return 'Error: Invalid hospital or location selection.';
+      return "Error: Invalid hospital or location selection.";
     }
-    if (formData.referred_by === 'Other') {
+    if (formData.referred_by === "Other") {
       if (!formData.referred_by_other.trim()) {
-        return 'Error: Please specify how you heard about the event.';
+        return "Error: Please specify how you heard about the event.";
       }
     } else if (!ALLOWED_REFERRALS.includes(formData.referred_by)) {
-      return 'Error: Invalid referral source.';
+      return "Error: Invalid referral source.";
     }
     return null;
   };
@@ -110,7 +110,7 @@ export default function Registration({ onBack }) {
 
     const errorMessage = validateForm();
     if (errorMessage) {
-      setStatus({ type: 'error', message: errorMessage });
+      setStatus({ type: "error", message: errorMessage });
       return;
     }
 
@@ -123,7 +123,7 @@ export default function Registration({ onBack }) {
       hospital: formData.hospital,
       location: formData.location,
       referred_by:
-        formData.referred_by === 'Other'
+        formData.referred_by === "Other"
           ? formData.referred_by_other.trim()
           : formData.referred_by,
       referred_by_other: formData.referred_by_other.trim(),
@@ -132,34 +132,34 @@ export default function Registration({ onBack }) {
 
     setSubmitting(true);
     try {
-      const res = await fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
-      const contentType = res.headers.get('content-type') || '';
-      const data = contentType.includes('application/json')
+      const contentType = res.headers.get("content-type") || "";
+      const data = contentType.includes("application/json")
         ? await res.json()
         : { message: await res.text() };
 
       if (!res.ok) {
         setStatus({
-          type: 'error',
-          message: data.error || data.message || 'Registration failed. Please try again.',
+          type: "error",
+          message: data.error || data.message || "Registration failed. Please try again.",
         });
         return;
       }
 
       setStatus({
-        type: 'success',
-        message: data.message || 'Registration Successful! Your details have been securely saved.',
+        type: "success",
+        message: data.message || "Registration Successful! Your details have been securely saved.",
       });
       setFormData(INITIAL_FORM);
     } catch {
       setStatus({
-        type: 'error',
-        message: 'Registration failed due to a network error. Please try again later.',
+        type: "error",
+        message: "Registration failed due to a network error. Please try again later.",
       });
     } finally {
       setSubmitting(false);
@@ -168,7 +168,7 @@ export default function Registration({ onBack }) {
 
   return (
     <div style={styles.container}>
-      {typeof onBack === 'function' && (
+      {typeof onBack === "function" && (
         <div style={styles.headerBar}>
           <button type="button" onClick={onBack} style={styles.backBtn}>
             ← Back to Hrdaya Siddhi
@@ -187,7 +187,7 @@ export default function Registration({ onBack }) {
             role="alert"
             style={{
               ...styles.alert,
-              ...(status.type === 'success' ? styles.alertSuccess : styles.alertError),
+              ...(status.type === "success" ? styles.alertSuccess : styles.alertError),
             }}
           >
             {status.message}
@@ -308,7 +308,7 @@ export default function Registration({ onBack }) {
               required
             >
               <option value="">
-                {formData.hospital ? 'Select location' : 'Select hospital first'}
+                {formData.hospital ? "Select location" : "Select hospital first"}
               </option>
               {locationOptions.map((loc) => (
                 <option key={loc} value={loc}>
@@ -341,7 +341,7 @@ export default function Registration({ onBack }) {
             </select>
           </div>
 
-          {formData.referred_by === 'Other' && (
+          {formData.referred_by === "Other" && (
             <div style={styles.fieldGroup}>
               <label htmlFor="referred_by_other" style={styles.label}>
                 Please Specify
@@ -380,7 +380,7 @@ export default function Registration({ onBack }) {
               opacity: submitting ? 0.7 : 1,
             }}
           >
-            {submitting ? 'Submitting...' : 'Submit Registration'}
+            {submitting ? "Submitting..." : "Submit Registration"}
           </button>
         </form>
       </div>
@@ -390,109 +390,109 @@ export default function Registration({ onBack }) {
 
 const styles = {
   container: {
-    minHeight: '100vh',
-    backgroundColor: '#f8fafc',
-    padding: '2rem 1rem',
-    fontFamily: 'Inter, system-ui, sans-serif',
-    boxSizing: 'border-box',
+    minHeight: "100vh",
+    backgroundColor: "#f8fafc",
+    padding: "2rem 1rem",
+    fontFamily: "Inter, system-ui, sans-serif",
+    boxSizing: "border-box",
   },
   headerBar: {
-    maxWidth: '800px',
-    margin: '0 auto 1.5rem auto',
+    maxWidth: "800px",
+    margin: "0 auto 1.5rem auto",
   },
   backBtn: {
-    background: '#ffffff',
-    border: '1px solid #cbd5e1',
-    color: '#475569',
-    padding: '0.5rem 1rem',
-    borderRadius: '0.375rem',
-    cursor: 'pointer',
-    fontSize: '0.9rem',
-    fontWeight: '500',
-    boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+    background: "#ffffff",
+    border: "1px solid #cbd5e1",
+    color: "#475569",
+    padding: "0.5rem 1rem",
+    borderRadius: "0.375rem",
+    cursor: "pointer",
+    fontSize: "0.9rem",
+    fontWeight: "500",
+    boxShadow: "0 1px 2px rgba(0,0,0,0.05)",
   },
   formCard: {
-    maxWidth: '800px',
-    width: '100%',
-    margin: '0 auto',
-    backgroundColor: '#ffffff',
-    padding: '1.75rem',
-    borderRadius: '0.75rem',
-    border: '1px solid #e2e8f0',
-    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
-    boxSizing: 'border-box',
+    maxWidth: "800px",
+    width: "100%",
+    margin: "0 auto",
+    backgroundColor: "#ffffff",
+    padding: "1.75rem",
+    borderRadius: "0.75rem",
+    border: "1px solid #e2e8f0",
+    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)",
+    boxSizing: "border-box",
   },
   heading: {
-    margin: '0 0 0.35rem 0',
-    color: '#0f172a',
-    fontSize: '1.5rem',
+    margin: "0 0 0.35rem 0",
+    color: "#0f172a",
+    fontSize: "1.5rem",
   },
   subheading: {
-    margin: '0 0 1.25rem 0',
-    color: '#64748b',
-    fontSize: '0.95rem',
+    margin: "0 0 1.25rem 0",
+    color: "#64748b",
+    fontSize: "0.95rem",
   },
   fieldGroup: {
-    marginBottom: '1rem',
+    marginBottom: "1rem",
   },
   label: {
-    display: 'block',
-    marginBottom: '0.375rem',
-    color: '#1e293b',
-    fontSize: '0.9rem',
-    fontWeight: '600',
+    display: "block",
+    marginBottom: "0.375rem",
+    color: "#1e293b",
+    fontSize: "0.9rem",
+    fontWeight: "600",
   },
   input: {
-    width: '100%',
-    padding: '0.625rem 0.75rem',
-    borderRadius: '0.375rem',
-    border: '1px solid #cbd5e1',
-    fontSize: '0.95rem',
-    color: '#0f172a',
-    backgroundColor: '#ffffff',
-    boxSizing: 'border-box',
+    width: "100%",
+    padding: "0.625rem 0.75rem",
+    borderRadius: "0.375rem",
+    border: "1px solid #cbd5e1",
+    fontSize: "0.95rem",
+    color: "#0f172a",
+    backgroundColor: "#ffffff",
+    boxSizing: "border-box",
   },
   termsBox: {
-    backgroundColor: '#f8fafc',
-    border: '1px solid #e2e8f0',
-    borderRadius: '0.375rem',
-    padding: '0.75rem 1rem',
-    margin: '1.25rem 0',
+    backgroundColor: "#f8fafc",
+    border: "1px solid #e2e8f0",
+    borderRadius: "0.375rem",
+    padding: "0.75rem 1rem",
+    margin: "1.25rem 0",
   },
   checkboxLabel: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.5rem',
-    fontSize: '0.9rem',
-    color: '#1e293b',
-    cursor: 'pointer',
+    display: "flex",
+    alignItems: "center",
+    gap: "0.5rem",
+    fontSize: "0.9rem",
+    color: "#1e293b",
+    cursor: "pointer",
   },
   submitBtn: {
-    width: '100%',
-    padding: '0.75rem 1rem',
-    backgroundColor: '#1e3a8a',
-    color: '#ffffff',
-    border: 'none',
-    borderRadius: '0.375rem',
-    fontSize: '1rem',
-    fontWeight: '600',
-    cursor: 'pointer',
+    width: "100%",
+    padding: "0.75rem 1rem",
+    backgroundColor: "#1e3a8a",
+    color: "#ffffff",
+    border: "none",
+    borderRadius: "0.375rem",
+    fontSize: "1rem",
+    fontWeight: "600",
+    cursor: "pointer",
   },
   alert: {
-    padding: '0.75rem 1rem',
-    borderRadius: '0.375rem',
-    marginBottom: '1rem',
-    fontSize: '0.9rem',
-    fontWeight: '500',
+    padding: "0.75rem 1rem",
+    borderRadius: "0.375rem",
+    marginBottom: "1rem",
+    fontSize: "0.9rem",
+    fontWeight: "500",
   },
   alertSuccess: {
-    backgroundColor: '#dcfce7',
-    color: '#166534',
-    border: '1px solid #86efac',
+    backgroundColor: "#dcfce7",
+    color: "#166534",
+    border: "1px solid #86efac",
   },
   alertError: {
-    backgroundColor: '#fee2e2',
-    color: '#991b1b',
-    border: '1px solid #fca5a5',
+    backgroundColor: "#fee2e2",
+    color: "#991b1b",
+    border: "1px solid #fca5a5",
   },
 };
